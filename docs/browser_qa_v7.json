@@ -1,0 +1,90 @@
+{
+  "targets": {
+    "palestine_system": {
+      "plot_count": 7,
+      "data_gaps": 0,
+      "render_errors": 0,
+      "visible_tables": 0,
+      "active_view": "view-palestine"
+    },
+    "palestine_institutions": {
+      "plot_count": 14,
+      "data_gaps": 0,
+      "render_errors": 0,
+      "visible_tables": 0,
+      "active_view": "view-palestine"
+    },
+    "palestine_governance": {
+      "plot_count": 23,
+      "data_gaps": 0,
+      "render_errors": 0,
+      "visible_tables": 0,
+      "active_view": "view-palestine"
+    },
+    "palestine_events": {
+      "plot_count": 27,
+      "data_gaps": 0,
+      "render_errors": 0,
+      "visible_tables": 0,
+      "active_view": "view-palestine"
+    },
+    "compare": {
+      "plot_count": 5,
+      "data_gaps": 0,
+      "render_errors": 0,
+      "visible_tables": 1,
+      "active_view": "view-compare"
+    },
+    "atlas": {
+      "plot_count": 0,
+      "data_gaps": 0,
+      "render_errors": 0,
+      "visible_tables": 0,
+      "active_view": "view-atlas"
+    },
+    "atlas_measures": {
+      "plot_count": 3,
+      "data_gaps": 0,
+      "render_errors": 0,
+      "visible_tables": 1,
+      "active_view": "view-atlas"
+    },
+    "atlas_network": {
+      "plot_count": 4,
+      "data_gaps": 0,
+      "render_errors": 0,
+      "visible_tables": 0,
+      "active_view": "view-atlas"
+    },
+    "map": {
+      "plot_count": 5,
+      "data_gaps": 0,
+      "render_errors": 0,
+      "visible_tables": 0,
+      "active_view": "view-map"
+    },
+    "data": {
+      "plot_count": 0,
+      "data_gaps": 0,
+      "render_errors": 0,
+      "visible_tables": 1,
+      "active_view": "view-data"
+    },
+    "quality": {
+      "plot_count": 2,
+      "data_gaps": 0,
+      "render_errors": 0,
+      "visible_tables": 1,
+      "active_view": "view-quality"
+    },
+    "downloads": {
+      "plot_count": 0,
+      "data_gaps": 0,
+      "render_errors": 0,
+      "visible_tables": 0,
+      "active_view": "view-downloads"
+    }
+  },
+  "page_errors": [],
+  "console_errors": []
+}

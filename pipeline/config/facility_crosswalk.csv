@@ -1,0 +1,28 @@
+﻿facility_id,facility_name,facility_type,location,comparison_bucket,notes
+PAL_ACRE_CENTRAL,Acre Central Prison,central_prison,Acre,ordinary prison,Map to ordinary prison / main prison only; not detention camp.
+PAL_JERUSALEM_CENTRAL,Jerusalem Central Prison,central_prison,Jerusalem,ordinary prison,Map to ordinary prison / main prison.
+PAL_HOWARD_HOME,Howard Home,juvenile_reformatory,Jerusalem/Palestine,juvenile institution,Do not mix with adult prison population unless comparator includes reformatories.
+PAL_JERUSALEM_REMAND,Jerusalem Remand Home,remand_home,Jerusalem,remand,Comparable only to remand/detention institutions.
+PAL_GIRLS_HOME,Girls Home,girls_home,,juvenile/female,Definition and location require source verification.
+PAL_BETHLEHEM_WOMEN,Bethlehem Women Prison,women_prison,Bethlehem,ordinary/special female prison,Verify institutional title by year.
+PAL_BETHLEHEM_DET,Bethlehem Detention Camp,detention_camp,Bethlehem,administrative/special detention,Exclude from ordinary-prison totals unless source total explicitly includes it.
+PAL_JLC1,Jail Labour Company 1,prison_labour_company,,labour company,Labour institution; compare to prison-labour establishments.
+PAL_JLC2,Jail Labour Company 2,prison_labour_company,,labour company,Labour institution.
+PAL_JLC3,Jail Labour Company 3,prison_labour_company,,labour company,Labour institution.
+PAL_JLC4,Jail Labour Company 4,prison_labour_company,,labour company,Labour institution.
+PAL_JLC12_GROUP,Jail Labour Companies 1 & 2,prison_labour_company_group,,labour company aggregate,Aggregate group; do not sum with components in same year.
+PAL_JLC_ALL,Jail Labour Companies (aggregate),prison_labour_company_group,,labour company aggregate,Aggregate employed-prisoner measure across labour companies.
+PAL_CENTRAL_GROUP,Central Prisons (aggregate),central_prison_group,,ordinary-prison aggregate,Aggregate of central prisons; do not double-count with Acre/Jerusalem when same universe.
+PAL_ACRE_FARM,Acre Farm Labour Camp,farm_labour_camp,Acre,labour camp,Keep separate from ordinary prison stock.
+PAL_HAIFA_LOCKUPS,Northern/Haifa District Lock-ups,district_lockup_group,Haifa/Northern District,lock-up group,"Closest comparator: local/provincial jails/lock-ups, not penitentiaries."
+PAL_JERUSALEM_LOCKUPS,Jerusalem District Lock-ups,district_lockup_group,Jerusalem District,lock-up group,Closest comparator: local/provincial jails/lock-ups.
+PAL_NAZARETH_LOCKUPS,Nazareth District Lock-ups,district_lockup_group,Nazareth/Northern,lock-up group,Group boundaries/names vary over time.
+PAL_SOUTHERN_LOCKUPS,Southern/Jaffa-Lydda District Lock-ups,district_lockup_group,Southern District,lock-up group,"Seat/name change around 1939 must be represented as alias, not new institution automatically."
+PAL_JAFFA_LOCKUP,Jaffa Lock-up,district_lockup,Jaffa,lock-up,Individual facility; avoid double-counting if already included in Southern District aggregate.
+PAL_NABLUS_LOCKUPS,Samaria/Nablus District Lock-ups,district_lockup_group,Nablus/Samaria,lock-up group,Closest comparator: local/provincial jails.
+PAL_BEERSHEBA_LOCKUPS,Beersheba/Gaza District Lock-ups,district_lockup_group,Beersheba/Gaza,lock-up group,Group boundaries require annual source notes.
+PAL_FRONTIER_LOCKUPS,Frontier District Lock-ups,district_lockup_group,Frontier District,lock-up group,Special/short-lived district category; verify years.
+PAL_ACRE_DET,Acre Detention Camp,detention_camp,Acre,administrative/special detention,Distinct from Acre Central Prison.
+PAL_SARAFAND_DET,Sarafand Detention Camp,detention_camp,Sarafand,administrative/special detention,Do not pool automatically with sentenced prisoners.
+PAL_ATHLIT_DET,Athlit Detention Camp,detention_camp,Athlit,immigration/administrative detention,Keep distinct from ordinary prison system.
+PAL_LATRUN_DET,Latrun Detention Camp,detention_camp,Latrun,administrative detention,Keep distinct from ordinary prison system.

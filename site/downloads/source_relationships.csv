@@ -1,0 +1,6 @@
+﻿jurisdiction,concept_id,source_a,source_b,relation_type,overlap_years,overlap_count,exact_measure_time_pairs,source_a_observations,source_b_observations,source_a_grades,source_b_grades
+Kenya,population_rate,EAF_1938_JSH,KEN_WPB_TREND,overlapping_same_concept,1938,1,,2,2,B | C,B
+New Zealand,admissions_flow,NZ_AJHR_PRISONS,NZ_OYB,complementary_same_concept,,0,admissions_total [annual_flow],7,17,A | B,A | B
+New Zealand,custodial_population_average,NZ_AJHR_PRISONS,NZ_OYB,complementary_same_concept,,0,avg_daily_total [annual_daily_average],5,15,A,A
+New Zealand,custodial_population_total,NZ_AJHR_PRISONS,NZ_OYB,complementary_same_concept,,0,stock_eoy_total [end_of_year_stock],2,25,A,A
+Nyasaland,population_rate,EAF_1938_JSH,MWI_WPB_TREND,complementary_same_concept,,0,,2,1,B | C,B

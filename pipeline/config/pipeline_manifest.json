@@ -1,0 +1,26 @@
+{
+  "project": "Colonial Prison Comparison Pipeline",
+  "version": "0.1.0",
+  "reference_dataset": "PAL_V2",
+  "reference_sheet_url": "https://docs.google.com/spreadsheets/d/10vGVgHP7JdODpGXGYcmaavthDNfoTCJo6hMO_u5CSTE/edit?usp=sharing",
+  "dictionary_built_from": "prison statistics - final.xlsx (companion export modified 2026-08-06)",
+  "production_gate": "Run schema diff against V2 before first production ingest",
+  "priority_comparators": [
+    "NZ_OYB",
+    "NGA_AO",
+    "CAN_HSC_Z",
+    "IND_DSAL"
+  ],
+  "canonical_output": "data/canonical/prison_observations.parquet",
+  "config_files": [
+    "validation_rules.csv",
+    "variable_crosswalk.csv",
+    "coverage_matrix.csv",
+    "canonical_schema.csv",
+    "source_registry.csv",
+    "canonical_schema.yaml",
+    "palestine_data_dictionary.csv",
+    "facility_crosswalk.csv",
+    "pipeline_steps.csv"
+  ]
+}

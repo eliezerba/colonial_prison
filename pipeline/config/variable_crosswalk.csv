@@ -1,0 +1,38 @@
+﻿source_id,source_variable_or_table,canonical_measure,years_relevant,comparability_grade,source_unit,source_universe,transformation,approval_status,notes
+NZ_OYB,Number in Confinement at End of Year,stock_eoy_total,1922-1944,A,persons,all prisoners in listed prisons,direct,provisional,Verify exclusions/industrial schools each year.
+NZ_OYB,Undergoing Sentence (31 Dec),stock_eoy_convicted,1922-1944,A,persons,sentenced prisoners,direct,provisional,
+NZ_OYB,"On Remand and awaiting Trial, &c. (31 Dec)",stock_eoy_nonconvicted,1922-1944,B,persons,remand/awaiting trial and related non-sentenced classes,map to nonconvicted after annual footnote check,provisional,Palestine nonconvicts may have a broader/different universe.
+NZ_OYB,Number received during Year,admissions_total,1922-1944,B,admissions,all receptions; may count repeat admissions and transfers,direct with reception-definition metadata,provisional,Yearbook explicitly distinguishes total receptions from filtered criminal receptions/distinct persons.
+NZ_OYB,Daily Average Number in Confinement,avg_daily_total,1922-1944,A,persons,all prisoners in listed prisons,direct,provisional,
+NZ_OYB,Prison accommodation,capacity,1922-1944,A,persons_capacity,facility capacity,direct,provisional,Palestine current sheet lacks a capacity field; candidate enrichment.
+NZ_OYB,"Proportion per 10,000 of Population",stock_eoy_rate_per_100000,1922-1944,A,rate_per_10000,system,multiply by 10,provisional,Keep source rate and derived per-100k rate.
+NZ_OYB,Distinct convicted prisoners received,distinct_convicted_admissions,1922-1944,B,persons,distinct sentenced persons received,direct but do not compare with admission events,provisional,
+NZ_OYB,Ages/offences of distinct convicted prisoners,admission_demographics,selected years,B,persons,distinct convicted persons,crosswalk categories,provisional,
+NGA_AO,daily average number in prison,avg_daily_total,1920-1944,A,persons,colonial prison population represented in dataset,direct,provisional,Paper notes available colonial prison data may be incomplete relative to all imprisonment; retain source coverage metadata.
+NGA_AO,"newly admitted prisoners per 100,000 population",admissions_rate_per_100000,1920-1938,A/B,rate_per_100000,province-year admissions,direct,provisional,Subnational series ends 1938 per paper description.
+NGA_AO,short-term sentence <6 months,sentence_band_source_specific,1920-1938+,B,persons/share,sentenced prisoners,retain original band; do not force into Palestine 0-3m / 3-12m without split,provisional,
+NGA_AO,medium-term 6 months-2 years,sentence_band_source_specific,1920-1938+,B,persons/share,sentenced prisoners,retain original band,provisional,
+NGA_AO,long-term >2 years,sentence_band_source_specific,1920-1938+,B,persons/share,sentenced prisoners,retain original band,provisional,
+NGA_AO,estimated value of prison labour,prison_labour_value,1920-1944,A/B,currency_original,colonial prison labour,store nominal source currency; deflation/exchange conversion in derived layer,provisional,
+NGA_AO,cost of housing/feeding/guarding prisoners,prison_expenditure,1920-1944,B,currency_original,colonial prisons,retain cost definition,provisional,
+NGA_AO,prison labour / prisoners employed,employed_avg_daily,1920-1944,B,persons_or_share,prison labour,verify exact replication field before approval,provisional,
+CAN_HSC_Z,"Z173-174 prisoners in penitentiaries at end of reporting year, by sex",stock_eoy_convicted,1922-1944,B,persons,federal penitentiary population,direct within penitentiary bucket,provisional,Do not compare to Palestine whole system without institution-universe filter.
+CAN_HSC_Z,provincial prisons/jails/all penal institutions series (1916-1956 block),stock_eoy_total,1922-1944,B,persons,institution-type dependent,select matched institution universe,provisional,Series/table IDs must be frozen during ingest inventory.
+CAN_HSC_Z,admissions to penitentiaries / provincial institutions,admissions_convicted,1918-1944,B,admissions,institution-type dependent,select matched universe,provisional,
+CAN_HSC_Z,average penitentiary population (Z223-226 block),avg_daily_total,1922-1944,B,persons,federal penitentiaries,direct within penitentiary bucket,provisional,
+CAN_HSC_Z,operating cost / annual or per-diem cost (Z223-226 block),prison_expenditure,1922-1944,B,currency_original,federal penitentiaries,retain original cost basis; derive per-prisoner only after definition check,provisional,
+CAN_HSC_Z,male admissions by age (Z175-197),admission_demographics,1938-1944,B,persons,male penitentiary admissions,crosswalk age bands,provisional,
+IND_DSAL,No. 37 Number and Distribution of Prisoners,stock_or_population_source_specific,1900-1919/20,B,persons,British India provinces / prison classes per table,retain source dimensions; map after file schema inspection,provisional,Pre-period only relative to Palestine.
+IND_DSAL,No. 40 Number of Convicts who had been Admitted Previously Convicted,recidivists,1900-1919/20,A/B,persons,convicts,direct after denominator/definition check,provisional,
+IND_DSAL,No. 41 Expenditure incurred in Guarding and Maintaining Prisoners,prison_expenditure,1900-1919/20,B,currency_original,prison system/provinces,direct nominal; keep exclusions in metadata,provisional,Excludes building/repairs according to title.
+IND_DSAL,"No. 38 Religion, Age, and State of Education of Convicts",prisoner_demographics,1900-1919/20,B,persons,convicts,category crosswalk,provisional,
+IND_DSAL,No. 39 Sickness and Mortality among Prisoners,prison_health,1900-1919/20,U,persons/rates,prisoners,retain for future enrichment,provisional,No close Palestine variable in current workbook.
+IND_DSAL,No. 42 Convict Settlement of Port Blair,special_convict_settlement,1900-1919/20,C,source_specific,Port Blair convict settlement,separate institution type,provisional,
+QLD_STHELENA,Start Year / End Year person records,active_record_proxy,1922-1936,C,person-records,indexed prisoners,count records active in year only after semantic approval,provisional,Not an official point-in-time stock series.
+TAS_PRISONERS,prisoner index records,person_record_count,1922-1938,D/C,person-records,indexed prisoners,no stock conversion by default,provisional,
+QLD_PHOTO,year/date prisoner photographic records,person_record_count,1922-1936,D/C,records,photographed/indexed prisoners,no stock conversion by default,provisional,
+QLD_TOOWOOMBA,prisoner/admission records,admissions_source_specific,pre-1907,C,records,Toowoomba prisoners/admissions,event counts only,provisional,No Palestine overlap.
+QLD_BRISBANE,date of reception / discharge,admissions_and_duration_source_specific,pre-1902,C,person-events,Brisbane gaol prisoners,derive person-level episodes if fields complete,provisional,No Palestine overlap.
+IRL_REGISTERS,person-level prison register entries,person_record_count,pre-1911,C,persons,Kilmainham/Clonmel prisoners,person-level analysis only,provisional,No Palestine overlap.
+WA_BLUEBOOKS,Convicts (partial),convict_population_source_specific,1900-1905,C,source_specific,WA Blue Books,inspect exact sheet before mapping,provisional,Partial/incomplete prison component.
+GUY_MNS,repository outputs - prison population variables not yet verified,unapproved,1922-1944 potential,U,unknown,unknown,no transformation until file inventory,provisional,Candidate only.

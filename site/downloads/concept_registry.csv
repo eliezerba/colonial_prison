@@ -1,0 +1,20 @@
+﻿concept_id,concept_label_he,concept_label_en,concept_kind,default_time_basis
+custodial_population_total,אוכלוסיית כלואים – נקודת זמן,Custodial population – point in time,population,point_or_stock
+custodial_population_average,אוכלוסיית כלואים – ממוצע,Custodial population – average,population,annual_average
+custodial_population_composition,הרכב אוכלוסיית הכלואים,Custodial population composition,composition,point_or_average
+admissions_flow,קבלות וכניסות,Admissions and entries,flow,annual_flow
+population_rate,שיעורי כליאה,Imprisonment rates,rate,derived_or_reported_rate
+national_population,אוכלוסייה כללית,National population,denominator,point_or_estimate
+capacity_and_occupancy,קיבולת ותפוסה,Capacity and occupancy,capacity,point
+prison_labour,עבודת אסירים,Prison labour,labour,annual_or_average
+finance,הוצאות והכנסות,Finance,finance,fiscal_year
+discipline_and_punishment,משמעת וענישה,Discipline and punishment,discipline,annual_flow
+recidivism,רצידיביזם,Recidivism,recidivism,annual_or_stock
+sentence_structure,מבנה עונשים,Sentence structure,sentence,point_or_flow
+special_detention,מעצר מיוחד ומנהלי,Special and administrative detention,detention,mixed
+movement_and_outcomes,תנועות ותוצאות,Movements and outcomes,events,annual_flow
+demography,מאפיינים דמוגרפיים,Demography,demography,mixed
+institutions,מוסדות ומבנה מערכתי,Institutions and system structure,institution,mixed
+qualitative_notes,הערות איכותניות,Qualitative notes,text,text
+source_proxy,Proxy / אינדקס מקור,Source proxy/index,proxy,record_index
+other,אחר,Other,other,mixed

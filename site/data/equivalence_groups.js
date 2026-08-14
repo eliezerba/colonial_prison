@@ -1,0 +1,1 @@
+window.CPE_EQUIVALENCE_GROUPS = [];

@@ -1,0 +1,28 @@
+﻿year,measure,value,unit,geography_level,facility_name,facility_type,source_table,source_header,source_url,comparability_grade,notes
+1924,admissions_total,7382,admissions,system,,,Administrative Report – Prisons,admissions_total,https://www.histsyn.com/1980/01/administrative-report-1924part002.html,B,Total persons committed to prison during year.
+1924,avg_daily_total,1066,persons,system,,,Administrative Report – Prisons,avg_daily_total,https://www.histsyn.com/1980/01/administrative-report-1924part002.html,B,Daily average prison population.
+1925,admissions_total,6339,admissions,system,,,Administrative Report – Prisons,admissions_total,https://www.histsyn.com/1980/01/co129-501-7-annual-general-report-1925.html,B,Total persons committed to prison during year.
+1925,avg_daily_total,1116,persons,system,,,Administrative Report – Prisons,avg_daily_total,https://www.histsyn.com/1980/01/co129-501-7-annual-general-report-1925.html,B,Daily average prison population.
+1926,admissions_total,6511,admissions,system,,,Administrative Report – Prisons,admissions_total,https://www.histsyn.com/2023/01/AR1926.html,B,Total persons committed to prison during year.
+1926,avg_daily_total,1054,persons,system,,,Administrative Report – Prisons,avg_daily_total,https://www.histsyn.com/2023/01/AR1926.html,B,Daily average prison population.
+1927,admissions_total,7740,admissions,system,,,Administrative Report – Prisons,admissions_total,https://www.histsyn.com/2023/01/AR1927.html,B,Total persons committed to prison during year.
+1927,avg_daily_total,1189,persons,system,,,Administrative Report – Prisons,avg_daily_total,https://www.histsyn.com/2023/01/AR1927.html,B,Daily average prison population.
+1930,admissions_total,6493,admissions,system,,,Administrative Report – Prisons,admissions_total,https://www.histsyn.com/1980/01/administrative-report-1931part002.html,B,Total persons committed to prison during year.
+1931,admissions_total,6767,admissions,system,,,Administrative Report – Prisons,admissions_total,https://www.histsyn.com/1980/01/administrative-report-1931part002.html,B,Total persons committed to prison during year.
+1931,avg_daily_total,1102,persons,system,,,Administrative Report – Prisons,avg_daily_total,https://www.histsyn.com/1980/01/administrative-report-1931part002.html,B,Daily average prison population.
+1932,admissions_total,7793,admissions,system,,,Administrative Report – Prisons,admissions_total,https://www.histsyn.com/2023/01/AR1932.html?m=1,B,Total persons committed to prison during year.
+1932,avg_daily_total,1114,persons,system,,,Administrative Report – Prisons,avg_daily_total,https://www.histsyn.com/2023/01/AR1932.html?m=1,B,Daily average prison population.
+1934,admissions_total,13304,admissions,system,,,Administrative Report – Prisons,admissions_total,https://www.histsyn.com/1980/01/administrative-report-1935part002.html,B,Total persons committed to prison during year.
+1934,avg_daily_total,1610,persons,system,,,Administrative Report – Prisons,avg_daily_total,https://www.histsyn.com/1980/01/administrative-report-1935part002.html,B,Daily average prison population.
+1935,admissions_total,16140,admissions,system,,,Administrative Report – Prisons,admissions_total,https://www.histsyn.com/1980/01/administrative-report-1935part002.html,B,Total persons committed to prison during year.
+1935,avg_daily_total,1796,persons,system,,,Administrative Report – Prisons,avg_daily_total,https://www.histsyn.com/1980/01/administrative-report-1935part002.html,B,Daily average prison population.
+1936,admissions_total,16106,admissions,system,,,Administrative Report – Prisons,admissions_total,https://www.histsyn.com/2023/01/AR1937.html,B,Total persons committed to prison during year.
+1936,avg_daily_total,1917,persons,system,,,Administrative Report – Prisons,avg_daily_total,https://www.histsyn.com/2023/01/AR1937.html,B,Daily average prison population.
+1937,admissions_total,17088,admissions,system,,,Administrative Report – Prisons,admissions_total,https://www.histsyn.com/2023/01/AR1937.html,B,Total persons committed to prison during year.
+1937,avg_daily_total,2493,persons,system,,,Administrative Report – Prisons,avg_daily_total,https://www.histsyn.com/2023/01/AR1937.html,B,Daily average prison population.
+1947,admissions_total,14743,admissions,system,,,Administrative Report – Prisons,admissions_total,https://www.histsyn.com/2023/01/EYB1948.html,B,Total persons committed to prison during year.
+1948,admissions_total,24941,admissions,system,,,Administrative Report – Prisons,admissions_total,https://www.histsyn.com/2023/01/EYB1948.html,B,Total persons committed to prison during year.
+1948,avg_daily_total,3165,persons,system,,,Administrative Report – Prisons,avg_daily_total,https://www.histsyn.com/2023/01/EYB1948.html,B,Daily average prison population.
+1949,admissions_total,21456,admissions,system,,,Administrative Report – Prisons,admissions_total,https://www.histsyn.com/2023/01/EYB1949.html,B,Total persons committed to prison during year.
+1949,avg_daily_total,3041,persons,system,,,Administrative Report – Prisons,avg_daily_total,https://www.histsyn.com/2023/01/EYB1949.html,B,Daily average prison population.
+1948,stock_eoy_total,3468,persons,system,,,Administrative Report – Prisons,stock_eoy_total,https://www.histsyn.com/2023/01/EYB1948.html,B,Total prisoners at end of year.

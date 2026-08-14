@@ -1,0 +1,33 @@
+﻿field,type,required,definition,example
+jurisdiction,string,True,Normalized political/administrative jurisdiction,Palestine
+year,integer,True,Canonical comparison year; for composite periods use year_end and preserve reporting_period,1934
+reporting_period,string,True,Original reporting period label,1934
+year_start,integer,True,Start year of reporting period,1934
+year_end,integer,True,End year of reporting period,1934
+reference_date,string,False,"Reference date for stock measures, normally YYYY-12-31 when verified",1934-12-31
+geography_level,enum,True,system / province / district / facility / person,facility
+geography_name,string,True,Normalized geography name,Palestine
+facility_id,string,False,Stable project facility identifier,PAL_ACRE_CENTRAL
+facility_name,string,False,Normalized facility name,Acre Central Prison
+facility_type,enum,False,"central_prison, district_lockup, detention_camp, labour_company, reformatory, etc.",central_prison
+measure,enum,True,Canonical measure code,stock_eoy_total
+measure_class,enum,True,stock / flow / average / rate / denominator / text,stock
+legal_status,enum,False,convicted / nonconvicted / remand / debtor / safe_custody / administrative_detainee / all_or_unspecified,convicted
+sex,enum,False,male / female / all_or_unspecified / unknown,all_or_unspecified
+age_group,string,False,Normalized age band when available,21-24
+sentence_band,enum,False,0-3m / 3-12m / 1-5y / 5-15y / 15y+ / life / capital / source_specific,1-5y
+labour_status,enum,False,employed / not_employed / unspecified,employed
+value,number,False,Numeric value; null when source cell is narrative/unparsed,2320
+unit,enum,True,persons / admissions / events / currency_original / rate_per_1000 / rate_per_10000 / rate_per_100000 / years / text,persons
+denominator,number,False,Explicit denominator when measure is a rate,
+source_dataset,string,True,Source registry ID,PAL_V2
+source_sheet,string,False,Source sheet/table,prison date
+source_column,string,False,Source column letter/index or external variable name,AN
+source_header,string,False,Exact original source header,total number of prisoners 31 Dec.
+source_table,string,False,External table title / series ID,
+source_url,string,True,Direct URL or dataset landing page,
+raw_value_text,string,False,Exact source text when not cleanly numeric,
+transformation,string,True,Transformation provenance,direct_numeric
+comparability_grade,enum,True,A direct / B harmonizable / C proxy / D not comparable / U unreviewed,U
+quality_flag,string,False,Machine/human QA flag(s),
+definition_verified,boolean,True,Whether source definition is manually approved,false

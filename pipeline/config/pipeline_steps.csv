@@ -1,0 +1,10 @@
+﻿step,name,description,mode,priority
+0,Freeze source versions,Export V2 Google Sheet to XLSX; store checksum and schema fingerprint; compare with companion XLSX dictionary.,manual + automated diff,P0
+1,Raw acquisition,"Download/retain immutable source files or HTML snapshots; record URL, download time, checksum, license/access.",automated where possible,P0
+2,Source-specific parsing,"Parse Palestine XLSX, NZ HTML tables, Canada CSVs, India XLS, Nigeria replication files, microdata APIs.",automated after first parser approval,P1
+3,Normalize,Convert all source records into canonical long schema without losing original source labels/values.,automated,P1
+4,Crosswalk approval,Human review of source-variable -> canonical mappings and institution universes; assign A/B/C/D.,semi-automated,P1
+5,Validation,"Run schema, key, unit, component, source-universe and provenance checks.",automated + review warnings,P1
+6,Derived measures,"Compute per-100k rates, turnover, shares, per-prisoner labour/cost only from approved compatible fields.",automated,P2
+7,Comparison panels,Build synchronous panels: Palestine-NZ; Palestine-Nigeria; Palestine-Canada; India pre-period benchmark.,automated,P2
+8,QA report,"Emit HTML/CSV report of missing years, discrepancies, unapproved mappings, proxy use and source revisions.",automated,P2

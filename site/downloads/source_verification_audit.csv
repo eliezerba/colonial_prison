@@ -1,0 +1,40 @@
+﻿source_id,loaded_observations,min_year,max_year,provenance_complete,provenance_complete_pct,definition_verified,definition_verified_pct,grade_A,grade_B,grade_C,grade_U,grade_D,definition_verified_direct,definition_verified_with_caveat,source_traceable_definition_pending,source_proxy_only,name,url
+ADEN_QDL_ADMIN,6,1921,1921,6,100.0,6,100.0,4,2,0,0,0,4,2,0,0,"Aden Settlement Annual Report – Jail statistics, 1920–21",https://www.qdl.qa/en/archive/81055/vdc_100148842067.0x000014
+AUS_ABS_HIST,33,1900,1950,33,100.0,33,100.0,33,0,0,0,0,33,0,0,0,Year Book Australia 2001 – Historical Prisoners Table C8.11,https://www.abs.gov.au/ausstats/abs%40.nsf/Lookup/4524A092E30E4486CA2569DE00256331
+BAS_WPB_HIST,2,1937,1945,2,100.0,2,100.0,0,2,0,0,0,0,2,0,0,World Prison Brief – Basutoland historical prison population,https://prisonstudies.org/country/lesotho
+BEC_WPB_HIST,1,1938,1938,1,100.0,1,100.0,0,1,0,0,0,0,1,0,0,World Prison Brief – Bechuanaland historical prison population,https://prisonstudies.org/country/botswana
+BGU_WPB_HIST,4,1921,1947,4,100.0,4,100.0,0,4,0,0,0,0,4,0,0,World Prison Brief – British Guiana historical prison population,https://prisonstudies.org/country/guyana
+BHS_WPB_HIST,4,1932,1950,4,100.0,4,100.0,0,4,0,0,0,0,4,0,0,World Prison Brief – Bahamas historical prison population,https://www.prisonstudies.org/country/bahamas?language_content_entity=en-gb
+BMD_WPB_HIST,3,1920,1950,3,100.0,3,100.0,0,3,0,0,0,0,3,0,0,World Prison Brief – Bermuda historical prison population,https://www.prisonstudies.org/country/bermuda-united-kingdom
+BOM_QDL_ADMIN,6,1923,1923,6,100.0,6,100.0,4,1,1,0,0,4,2,0,0,"Bombay Presidency Administration Review – Jail statistics, 1923–24",https://www.qdl.qa/en/archive/81055/vdc_100152998489.0x00005e
+BRB_WPB_HIST,4,1929,1950,4,100.0,4,100.0,0,4,0,0,0,0,4,0,0,World Prison Brief – Barbados historical prison population,https://prisonstudies.org/country/barbados
+CAN_HSC_Z,361,1900,1950,361,100.0,361,100.0,0,361,0,0,0,0,361,0,0,Historical Statistics of Canada - Section Z: Justice,https://www150.statcan.gc.ca/n1/pub/11-516-x/sectionz/4147446-eng.htm
+CEYLON_WPB_HIST,5,1920,1938,5,100.0,5,100.0,0,5,0,0,0,0,5,0,0,World Prison Brief – Ceylon/Sri Lanka historical prison population trend,https://www.prisonstudies.org/country/sri-lanka?language_content_entity=en-gb
+CYP_WPB_HIST,7,1920,1950,7,100.0,7,100.0,0,7,0,0,0,0,7,0,0,World Prison Brief – Cyprus historical prison population,https://prisonstudies.org/country/cyprus-republic?language_content_entity=en-gb
+DMA_WPB_HIST,4,1933,1950,4,100.0,4,100.0,0,4,0,0,0,0,4,0,0,World Prison Brief – Dominica historical prison population,https://prisonstudies.org/country/dominica
+EAF_1938_JSH,28,1938,1938,28,100.0,28,100.0,0,21,7,0,0,0,28,0,0,"Comparative prison populations in British African colonies, 1938",https://doi.org/10.1093/jsh/shaf099
+EAW_PARL_HIST,18,1900,1950,18,100.0,18,100.0,18,0,0,0,0,18,0,0,0,"Annual Average Prison Population, England and Wales",https://publications.parliament.uk/pa/cm201314/cmselect/cmjust/92/92vw47.htm
+FIJ_WPB_HIST,1,1920,1920,1,100.0,1,100.0,0,1,0,0,0,0,1,0,0,World Prison Brief – Fiji historical prison population,https://prisonstudies.org/country/fiji
+GCO_WPB_HIST,3,1920,1937,3,100.0,3,100.0,0,3,0,0,0,0,3,0,0,World Prison Brief – Gold Coast historical prison population,https://prisonstudies.org/country/ghana?language_content_entity=en-gb
+GMB_WPB_HIST,4,1922,1950,4,100.0,4,100.0,0,4,0,0,0,0,4,0,0,World Prison Brief – Gambia historical prison population,https://prisonstudies.org/country/gambia?language_content_entity=en-gb
+HKG_ADMIN,27,1924,1949,27,100.0,27,100.0,0,27,0,0,0,0,27,0,0,Hong Kong Administrative Reports / Annual Reports – Prisons,https://digitalrepository.lib.hku.hk/catalog/pc28gw81r
+IND_HANSARD_ADM,27,1920,1928,27,100.0,27,100.0,0,27,0,0,0,0,27,0,0,"British India prisoners placed in confinement, 1920–1928",https://hansard.parliament.uk/Commons/1930-11-06/debates/9ec4e995-09f7-475d-a234-ba0b2f3b5d15/WrittenAnswers
+IRL_WPB_TREND,12,1922,1950,12,100.0,12,100.0,0,12,0,0,0,0,12,0,0,World Prison Brief – Ireland historical prison population,https://prisonstudies.org/country/ireland-republic?language_content_entity=en-gb
+JAM_WPB_HIST,7,1920,1950,7,100.0,7,100.0,0,7,0,0,0,0,7,0,0,World Prison Brief – Jamaica historical prison population,https://www.prisonstudies.org/country/jamaica?language_content_entity=en-gb
+KEN_WPB_TREND,5,1928,1948,5,100.0,5,100.0,0,5,0,0,0,0,5,0,0,World Prison Brief – Kenya historical prison population,https://www.prisonstudies.org/country/kenya
+MLT_WPB_HIST,5,1921,1950,5,100.0,5,100.0,0,5,0,0,0,0,5,0,0,World Prison Brief – Malta historical prison population,https://www.prisonstudies.org/country/malta?language_content_entity=en-gb
+MUS_WPB_HIST,4,1920,1948,4,100.0,4,100.0,0,4,0,0,0,0,4,0,0,World Prison Brief – Mauritius historical prison population,https://www.prisonstudies.org/country/mauritius?language_content_entity=en-gb
+MWI_WPB_TREND,4,1928,1950,4,100.0,4,100.0,0,4,0,0,0,0,4,0,0,World Prison Brief – Nyasaland/Malawi historical prison population,https://prisonstudies.org/country/malawi
+NGA_AO,57,1920,1938,57,100.0,57,100.0,38,19,0,0,0,38,19,0,0,Prison Labor: The Price of Prisons and the Lasting Effects of Incarceration,https://www.nber.org/papers/w31637
+NZ_AJHR_PRISONS,55,1925,1930,55,100.0,55,100.0,9,46,0,0,0,9,46,0,0,New Zealand Prisons Department Reports – AJHR / Papers Past,https://paperspast.natlib.govt.nz/parliamentary/AJHR1930-I.2.3.2.23
+NZ_OYB,125,1919,1943,125,100.0,125,100.0,111,14,0,0,0,111,14,0,0,New Zealand Official Yearbooks - Prisons and Prisoners,https://www3.stats.govt.nz/New_Zealand_Official_Yearbooks/1920/NZOYB_1920.html
+PAL_V2,1135,1921,1948,1135,100.0,642,56.56,368,274,0,474,19,368,274,474,19,Palestine prison statistics - final - V2,https://docs.google.com/spreadsheets/d/10vGVgHP7JdODpGXGYcmaavthDNfoTCJo6hMO_u5CSTE/edit?usp=sharing
+QLD_STHELENA,1,1936,1936,1,100.0,1,100.0,0,0,0,0,1,0,0,0,1,St Helena prisoners 1863 to 1936,https://www.data.qld.gov.au/dataset/st-helena-prisoner-index-1863-to-1936
+SGP_WPB_TREND,1,1947,1947,1,100.0,1,100.0,0,1,0,0,0,0,1,0,0,World Prison Brief – Singapore historical prison population,https://www.prisonstudies.org/country/singapore?language_content_entity=en-gb
+SLB_WPB_HIST,2,1931,1938,2,100.0,2,100.0,0,2,0,0,0,0,2,0,0,World Prison Brief – Solomon Islands historical prison population,https://prisonstudies.org/country/solomon-islands
+SLE_WPB_HIST,3,1920,1938,3,100.0,3,100.0,0,3,0,0,0,0,3,0,0,World Prison Brief – Sierra Leone historical prison population,https://prisonstudies.org/country/sierra-leone?language_content_entity=en-gb
+SWZ_WPB_TREND,1,1938,1938,1,100.0,1,100.0,0,1,0,0,0,0,1,0,0,World Prison Brief – Swaziland historical prison population,https://prisonstudies.org/country/eswatiniswaziland
+TAS_PRISONERS,1,1938,1938,1,100.0,1,100.0,0,0,0,0,1,0,0,0,1,Tasmanian Prisoners 1877-1938,https://data.gov.au/data/dataset/d2c27ee7-8be8-425b-a028-b96ef3847fac
+TTO_WPB_HIST,5,1920,1950,5,100.0,5,100.0,0,5,0,0,0,0,5,0,0,World Prison Brief – Trinidad & Tobago historical prison population,https://www.prisonstudies.org/country/trinidad-tobago?language_content_entity=en-gb
+TZA_WPB_TREND,4,1927,1946,4,100.0,4,100.0,0,4,0,0,0,0,4,0,0,World Prison Brief – Tanganyika/Tanzania historical prison population,https://prisonstudies.org/country/tanzania
+ZAF_WPB_TREND,2,1936,1936,2,100.0,2,100.0,0,2,0,0,0,0,2,0,0,World Prison Brief – South Africa historical prison population,https://www.prisonstudies.org/country/south-africa

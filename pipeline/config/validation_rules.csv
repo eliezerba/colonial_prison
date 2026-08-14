@@ -1,0 +1,19 @@
+﻿rule_id,scope,rule,severity,implementation_note
+VAL001,schema,required fields present,ERROR,"jurisdiction, year/reporting_period, measure, unit, source_dataset, source_url must be non-null"
+VAL002,year,year range,ERROR,year_start/year_end must be plausible and year_start <= year_end
+VAL003,value,nonnegative counts,ERROR,person/admission/event counts cannot be negative
+VAL004,unit,measure-unit compatibility,ERROR,stock/average measures must use persons; admissions must use admissions/persons with explicit definition; rates require rate units
+VAL005,stock,reference date,WARN,stock_eoy measures should have a verified end-of-year reference date or explicit source-specific reference date
+VAL006,uniqueness,canonical key uniqueness,ERROR,no duplicate source_dataset + year + geography + facility + measure + legal_status + sex + sentence_band unless source_table differentiates
+VAL007,components,convicted + nonconvicted vs total,WARN,do not auto-correct discrepancies; flag for source-definition review
+VAL008,facility,facility type required,ERROR,facility-level observations require facility_id/facility_type
+VAL009,institution universe,ordinary vs special detention,ERROR,"ordinary prison comparison must not silently include detention camps, remand homes, juvenile homes or labour camps"
+VAL010,flows,admissions semantics,WARN,distinguish admissions/events from distinct persons admitted and transfers
+VAL011,averages,average semantics,WARN,distinguish daily average from average of periodic counts or unspecified average
+VAL012,rates,denominator,ERROR,derived rate requires positive denominator and documented denominator year/universe
+VAL013,currency,nominal currency provenance,WARN,never compare expenditure/labour value cross-jurisdiction without currency/price transformation metadata
+VAL014,crosswalk,comparability approval,ERROR,production comparative output may use grades A/B only unless analyst explicitly opts into C proxies
+VAL015,raw text,preservation,ERROR,narrative source cells must be retained verbatim in raw_value_text when numeric parsing is not certain
+VAL016,clean columns,preferred version,WARN,"where clean/raw paired columns exist, numeric canonical output uses clean column and retains raw column for provenance"
+VAL017,sentence blocks,sex/universe verification,ERROR,Palestine sentence-distribution sheet first/second blocks must be verified before sex-specific comparisons
+VAL018,double count,facility aggregate overlap,ERROR,do not sum individual lock-ups with district aggregates covering the same facilities/year

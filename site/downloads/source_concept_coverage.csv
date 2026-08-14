@@ -1,0 +1,47 @@
+﻿source_id,name,jurisdiction,state,loaded_observations,admissions_flow,capacity_and_occupancy,custodial_population_average,custodial_population_composition,custodial_population_total,demography,discipline_and_punishment,finance,institutions,movement_and_outcomes,national_population,other,population_rate,prison_labour,qualitative_notes,recidivism,sentence_structure,source_proxy,special_detention
+PAL_V2,Palestine prison statistics - final - V2,Mandatory Palestine,loaded,1135,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1
+NZ_OYB,New Zealand Official Yearbooks - Prisons and Prisoners,New Zealand,loaded,125,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+NGA_AO,Prison Labor: The Price of Prisons and the Lasting Effects of Incarceration,British Nigeria,loaded,57,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CAN_HSC_Z,Historical Statistics of Canada - Section Z: Justice,Canada,loaded,361,1,0,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+IND_DSAL,Statistical Abstract relating to British India - DSAL Excel series,British India,refreshable,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+QLD_STHELENA,St Helena prisoners 1863 to 1936,Queensland – St Helena Penal Establishment,loaded,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+TAS_PRISONERS,Tasmanian Prisoners 1877-1938,Tasmania – Hobart Gaol,loaded,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+QLD_PHOTO,Photographic records of prisoners 1875-1936,"Queensland, Australia",refreshable,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+QLD_TOOWOOMBA,Toowoomba prison records 1864-1906,"Queensland, Australia",refreshable,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+QLD_BRISBANE,Brisbane Gaol Prisoners 1850-1901,"Queensland, Australia",refreshable,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+IRL_REGISTERS,"General Prison Registers for Two Irish Prisons, 1840-1910",Ireland under British rule,refreshable,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+WA_BLUEBOOKS,WA Blue Books dataset,Western Australia,refreshable,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+GUY_MNS,"Mental, Neurological, and Substance Abuse Disorders in Guyana's Jails, 1825-2022",British Guiana / Guyana,refreshable,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+HKG_ADMIN,Hong Kong Administrative Reports / Annual Reports – Prisons,Hong Kong,loaded,27,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+NZ_AJHR_PRISONS,New Zealand Prisons Department Reports – AJHR / Papers Past,New Zealand,loaded,55,1,0,1,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0
+AUS_ABS_HIST,Year Book Australia 2001 – Historical Prisoners Table C8.11,Australia,loaded,33,0,0,1,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0
+CEYLON_WPB_HIST,World Prison Brief – Ceylon/Sri Lanka historical prison population trend,Ceylon,loaded,5,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+EAF_1938_JSH,"Comparative prison populations in British African colonies, 1938",British African colonies,loaded,28,0,0,1,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0
+EAW_PARL_HIST,"Annual Average Prison Population, England and Wales",England & Wales,loaded,18,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+IND_HANSARD_ADM,"British India prisoners placed in confinement, 1920–1928",British India,loaded,27,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ADEN_QDL_ADMIN,"Aden Settlement Annual Report – Jail statistics, 1920–21",Aden,loaded,6,1,0,1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0
+BOM_QDL_ADMIN,"Bombay Presidency Administration Review – Jail statistics, 1923–24",Bombay Presidency,loaded,6,0,0,1,0,1,1,1,0,0,0,0,1,0,0,0,0,0,0,0
+MUS_WPB_HIST,World Prison Brief – Mauritius historical prison population,Mauritius,loaded,4,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+JAM_WPB_HIST,World Prison Brief – Jamaica historical prison population,Jamaica,loaded,7,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+MLT_WPB_HIST,World Prison Brief – Malta historical prison population,Malta,loaded,5,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CYP_WPB_HIST,World Prison Brief – Cyprus historical prison population,Cyprus,loaded,7,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+TTO_WPB_HIST,World Prison Brief – Trinidad & Tobago historical prison population,Trinidad & Tobago,loaded,5,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+FIJ_WPB_HIST,World Prison Brief – Fiji historical prison population,Fiji,loaded,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+SLE_WPB_HIST,World Prison Brief – Sierra Leone historical prison population,Sierra Leone,loaded,3,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+BMD_WPB_HIST,World Prison Brief – Bermuda historical prison population,Bermuda,loaded,3,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+BRB_WPB_HIST,World Prison Brief – Barbados historical prison population,Barbados,loaded,4,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+BHS_WPB_HIST,World Prison Brief – Bahamas historical prison population,Bahamas,loaded,4,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+GCO_WPB_HIST,World Prison Brief – Gold Coast historical prison population,Gold Coast,loaded,3,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+GMB_WPB_HIST,World Prison Brief – Gambia historical prison population,Gambia,loaded,4,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+BEC_WPB_HIST,World Prison Brief – Bechuanaland historical prison population,Bechuanaland,loaded,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+BGU_WPB_HIST,World Prison Brief – British Guiana historical prison population,British Guiana,loaded,4,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+BAS_WPB_HIST,World Prison Brief – Basutoland historical prison population,Basutoland,loaded,2,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+SLB_WPB_HIST,World Prison Brief – Solomon Islands historical prison population,Solomon Islands,loaded,2,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+DMA_WPB_HIST,World Prison Brief – Dominica historical prison population,Dominica,loaded,4,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+KEN_WPB_TREND,World Prison Brief – Kenya historical prison population,Kenya,loaded,5,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+TZA_WPB_TREND,World Prison Brief – Tanganyika/Tanzania historical prison population,Tanganyika,loaded,4,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+MWI_WPB_TREND,World Prison Brief – Nyasaland/Malawi historical prison population,Nyasaland,loaded,4,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+SWZ_WPB_TREND,World Prison Brief – Swaziland historical prison population,Swaziland,loaded,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ZAF_WPB_TREND,World Prison Brief – South Africa historical prison population,South Africa,loaded,2,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+IRL_WPB_TREND,World Prison Brief – Ireland historical prison population,Ireland,loaded,12,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+SGP_WPB_TREND,World Prison Brief – Singapore historical prison population,Singapore,loaded,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0

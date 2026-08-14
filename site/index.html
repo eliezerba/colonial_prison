@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="מערכת מחקרית להשוואת נתוני בתי סוהר קולוניאליים, עם פלסטין המנדטורית כמקרה המרכזי ושרשרת provenance לכל נתון.">
+<title>Colonial Prison Statistics Explorer — Palestine at the Centre</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <button id="mobileMenu" class="icon-button mobile-only" aria-label="פתיחת תפריט">☰</button>
+  <div class="brand" data-go="palestine" role="button" tabindex="0">
+    <div class="brandmark">CPS</div>
+    <div><h1>Colonial Prison Statistics Explorer</h1><p>פלסטין המנדטורית במרכז · נתונים, השוואה ומקורות</p></div>
+  </div>
+  <div class="top-status"><span class="palestine-badge">★ פלסטין היא מקרה הבסיס</span><span id="buildBadge" class="build-badge"></span></div>
+</header>
+<div class="shell">
+<nav id="sidebar" class="sidebar" aria-label="ניווט ראשי">
+  <div class="sidebar-summary"><b>מסלול מחקר</b><span>מן השאלה אל הנתון, ומן הנתון בחזרה למקור</span></div>
+  <button class="nav active" data-view="palestine"><span class="nav-num">01</span><span><b>פלסטין</b><small>הדשבורד המרכזי</small></span></button>
+  <button class="nav" data-view="compare"><span class="nav-num">02</span><span><b>השוואה</b><small>פלסטין מול מרחבים אחרים</small></span></button>
+  <button class="nav" data-view="atlas"><span class="nav-num">03</span><span><b>אטלס מקורות</b><small>כל מקור וכל מדד</small></span></button>
+  <button class="nav" data-view="map"><span class="nav-num">04</span><span><b>מפה</b><small>מרחבים ומוסדות</small></span></button>
+  <button class="nav" data-view="data"><span class="nav-num">05</span><span><b>נתונים</b><small>כל ה־observations</small></span></button>
+  <button class="nav" data-view="quality"><span class="nav-num">06</span><span><b>איכות וקישוריות</b><small>QA, provenance וסנכרון</small></span></button>
+  <button class="nav" data-view="downloads"><span class="nav-num">07</span><span><b>הורדות</b><small>CSV ותיעוד</small></span></button>
+</nav>
+<main class="main">
+
+<section id="view-palestine" class="view active">
+  <div class="hero palestine-hero">
+    <div><div class="eyebrow">PRIMARY CASE · MANDATORY PALESTINE</div><h2>מה השתנה במערכת הכליאה של פלסטין, ואיך מתחברים אוכלוסייה, admissions, מוסדות, עבודה, משמעת ומעצר מנהלי?</h2><p>כל גרף במסך זה מבוסס על נתוני פלסטין. לחיצה על נקודה פותחת את התא, הטבלה, הטרנספורמציה והמקור שמאחוריה.</p></div>
+    <div id="palHeroStats" class="hero-stats"></div>
+  </div>
+  <div class="control-deck sticky-controls">
+    <div class="control"><label for="palY0">משנה</label><input id="palY0" type="number" min="1900" max="1950"></div>
+    <div class="control"><label for="palY1">עד שנה</label><input id="palY1" type="number" min="1900" max="1950"></div>
+    <div class="control grow"><label for="palMode">אופן הצגה</label><select id="palMode"><option value="annual">ערכים שנתיים</option><option value="ma3">ממוצע נע — 3 שנים</option><option value="ma5">ממוצע נע — 5 שנים</option><option value="periodavg">ממוצע רב־שנתי לתקופה</option><option value="index">מדד 100 בתחילת התקופה</option><option value="change">שינוי מצטבר באחוזים</option></select></div>
+    <div class="control grow"><label>תקופות מהירות</label><div class="button-group" id="palPresets"><button data-period="1920,1929">שנות ה־20</button><button data-period="1930,1936">1930–36</button><button data-period="1937,1939">1937–39</button><button data-period="1940,1948">1940–48</button><button data-period="full">הכול</button></div></div>
+    <button id="applyPal" class="primary">עדכון</button>
+  </div>
+  <div id="palModeNote" class="analysis-note"></div>
+  <div class="subnav" id="palTabs"><button class="subnav-button active" data-tab="system">מערכת וזרמים</button><button class="subnav-button" data-tab="institutions">מוסדות ומרחב</button><button class="subnav-button" data-tab="governance">עבודה, משמעת ורצידיביזם</button><button class="subnav-button" data-tab="events">אירועים, אנשים והערות</button></div>
+
+  <div class="tab-panel active" data-panel="system">
+    <div class="dashboard-grid">
+      <article class="card chart-card span-2"><header><div><span class="scope-chip">פלסטין</span><span class="concept-chip">Stock, average, flow</span><h3>האם גידול ב־admissions ביטא הרחבת כליאה, או בעיקר תחלופה מהירה יותר?</h3><p>הזרם השנתי מוצג בציר נפרד מן ה־stock והממוצע היומי.</p></div></header><div id="pFlowStock" class="chart chart-lg"></div><footer id="meta-pFlowStock" class="chart-meta"></footer><div id="src-pFlowStock" class="chart-sources"></div></article>
+      <article class="card chart-card"><header><span class="scope-chip">פלסטין</span><h3>כיצד השתנה ההרכב המשפטי של מצבת סוף השנה?</h3></header><div id="pLegalComposition" class="chart"></div><footer id="meta-pLegalComposition" class="chart-meta"></footer><div id="src-pLegalComposition" class="chart-sources"></div></article>
+      <article class="card chart-card"><header><span class="scope-chip">פלסטין</span><h3>כיצד השתנה תמהיל הקבלות למערכת?</h3></header><div id="pAdmissionsMix" class="chart"></div><footer id="meta-pAdmissionsMix" class="chart-meta"></footer><div id="src-pAdmissionsMix" class="chart-sources"></div></article>
+      <article class="card chart-card"><header><span class="scope-chip">פלסטין</span><h3>כמה קבלות היו לכל אסיר בממוצע יומי?</h3></header><div id="pTurnover" class="chart"></div><footer id="meta-pTurnover" class="chart-meta"></footer><div id="src-pTurnover" class="chart-sources"></div></article>
+      <article class="card chart-card"><header><span class="scope-chip">פלסטין</span><h3>האם היקף הכליאה עלה מהר יותר מן האוכלוסייה?</h3></header><div id="pRates" class="chart"></div><footer id="meta-pRates" class="chart-meta"></footer><div id="src-pRates" class="chart-sources"></div></article>
+      <article class="card chart-card"><header><span class="scope-chip">פלסטין</span><h3>מה היה היחס בין הממוצע היומי לבין מצבת סוף השנה?</h3></header><div id="pAverageStockRatio" class="chart"></div><footer id="meta-pAverageStockRatio" class="chart-meta"></footer><div id="src-pAverageStockRatio" class="chart-sources"></div></article>
+      <article class="card chart-card"><header><span class="scope-chip">פלסטין</span><h3>באילו שנים נרשמו השינויים השנתיים החדים ביותר?</h3></header><div id="pAnnualChange" class="chart"></div><footer id="meta-pAnnualChange" class="chart-meta"></footer><div id="src-pAnnualChange" class="chart-sources"></div></article>
+    </div>
+  </div>
+
+  <div class="tab-panel" data-panel="institutions">
+    <div class="dashboard-grid">
+      <article class="card chart-card span-2"><header><span class="scope-chip">פלסטין</span><h3>האם מרכז הכובד של הכליאה עבר בין עכו לירושלים?</h3></header><div id="pCentralStock" class="chart chart-lg"></div><footer id="meta-pCentralStock" class="chart-meta"></footer><div id="src-pCentralStock" class="chart-sources"></div></article>
+      <article class="card chart-card"><header><span class="scope-chip">פלסטין</span><h3>כיצד השתנו admissions בבתי הסוהר המרכזיים?</h3></header><div id="pCentralAdmissions" class="chart"></div><footer id="meta-pCentralAdmissions" class="chart-meta"></footer><div id="src-pCentralAdmissions" class="chart-sources"></div></article>
+      <article class="card chart-card"><header><span class="scope-chip">פלסטין</span><h3>אילו district lock-ups נשאו את ה־stock הגדול ביותר?</h3></header><div id="pLockupStock" class="chart"></div><footer id="meta-pLockupStock" class="chart-meta"></footer><div id="src-pLockupStock" class="chart-sources"></div></article>
+      <article class="card chart-card"><header><span class="scope-chip">פלסטין</span><h3>היכן הייתה תחלופת האסירים המחוזית הגדולה ביותר?</h3></header><div id="pLockupAdmissions" class="chart"></div><footer id="meta-pLockupAdmissions" class="chart-meta"></footer><div id="src-pLockupAdmissions" class="chart-sources"></div></article>
+      <article class="card chart-card"><header><span class="scope-chip">פלסטין</span><h3>מתי נעשו מחנות המעצר רכיב מרכזי במערכת?</h3></header><div id="pDetention" class="chart"></div><footer id="meta-pDetention" class="chart-meta"></footer><div id="src-pDetention" class="chart-sources"></div></article>
+      <article class="card chart-card span-2"><header><span class="scope-chip">פלסטין</span><h3>אילו מוסדות היו הגדולים ביותר בממוצע לאורך התקופה שנבחרה?</h3></header><div id="pFacilityRanking" class="chart"></div><footer id="meta-pFacilityRanking" class="chart-meta"></footer><div id="src-pFacilityRanking" class="chart-sources"></div></article>
+      <article class="card chart-card span-2"><header><span class="scope-chip">פלסטין</span><h3>באילו שנים ובאילו מוסדות יש כיסוי נתונים?</h3></header><div id="pFacilityCoverage" class="chart chart-lg"></div><footer id="meta-pFacilityCoverage" class="chart-meta"></footer><div id="src-pFacilityCoverage" class="chart-sources"></div></article>
+    </div>
+  </div>
+
+  <div class="tab-panel" data-panel="governance">
+    <div class="dashboard-grid">
+      <article class="card chart-card"><header><span class="scope-chip">פלסטין</span><h3>כמה אסירים הועסקו, ובאילו מסגרות?</h3></header><div id="pLabour" class="chart"></div><footer id="meta-pLabour" class="chart-meta"></footer><div id="src-pLabour" class="chart-sources"></div></article>
+      <article class="card chart-card"><header><span class="scope-chip">פלסטין</span><h3>איזה חלק מן הממוצע היומי הועסק בעבודה?</h3></header><div id="pLabourShare" class="chart"></div><footer id="meta-pLabourShare" class="chart-meta"></footer><div id="src-pLabourShare" class="chart-sources"></div></article>
+      <article class="card chart-card"><header><span class="scope-chip">פלסטין</span><h3>כיצד השתנה הערך המדווח של עבודת האסירים?</h3></header><div id="pLabourValue" class="chart"></div><footer id="meta-pLabourValue" class="chart-meta"></footer><div id="src-pLabourValue" class="chart-sources"></div></article>
+      <article class="card chart-card"><header><span class="scope-chip">פלסטין</span><h3>כיצד השתנו ההוצאות המדווחות של מערכת בתי הסוהר?</h3></header><div id="pExpenditure" class="chart"></div><footer id="meta-pExpenditure" class="chart-meta"></footer><div id="src-pExpenditure" class="chart-sources"></div></article>
+      <article class="card chart-card"><header><span class="scope-chip">פלסטין</span><h3>האם עבירות המשמעת התרבו ביחס לאוכלוסיית הכלא?</h3></header><div id="pDiscipline" class="chart"></div><footer id="meta-pDiscipline" class="chart-meta"></footer><div id="src-pDiscipline" class="chart-sources"></div></article>
+      <article class="card chart-card span-2"><header><span class="scope-chip">פלסטין</span><h3>באילו אמצעי ענישה משמעתיים נעשה שימוש?</h3></header><div id="pPunishments" class="chart"></div><footer id="meta-pPunishments" class="chart-meta"></footer><div id="src-pPunishments" class="chart-sources"></div></article>
+      <article class="card chart-card"><header><span class="scope-chip">פלסטין</span><h3>כיצד השתנה שיעור הרצידיביזם?</h3></header><div id="pRecidivismRate" class="chart"></div><footer id="meta-pRecidivismRate" class="chart-meta"></footer><div id="src-pRecidivismRate" class="chart-sources"></div></article>
+      <article class="card chart-card"><header><span class="scope-chip">פלסטין</span><h3>מה היה הרכב ההרשעות הקודמות?</h3></header><div id="pRecidivismMix" class="chart"></div><footer id="meta-pRecidivismMix" class="chart-meta"></footer><div id="src-pRecidivismMix" class="chart-sources"></div></article>
+      <article class="card chart-card span-2"><header><span class="scope-chip">פלסטין</span><h3>האם חל מעבר לעונשי מאסר ארוכים יותר?</h3></header><div id="pSentences" class="chart chart-lg"></div><footer id="meta-pSentences" class="chart-meta"></footer><div id="src-pSentences" class="chart-sources"></div></article>
+    </div>
+  </div>
+
+  <div class="tab-panel" data-panel="events">
+    <div class="dashboard-grid">
+      <article class="card chart-card"><header><span class="scope-chip">פלסטין</span><h3>כיצד השתנו בריחות והוצאות להורג?</h3></header><div id="pEscapesExecutions" class="chart"></div><footer id="meta-pEscapesExecutions" class="chart-meta"></footer><div id="src-pEscapesExecutions" class="chart-sources"></div></article>
+      <article class="card chart-card"><header><span class="scope-chip">פלסטין</span><h3>כיצד השתנו הסגרות וגירושים?</h3></header><div id="pMovements" class="chart"></div><footer id="meta-pMovements" class="chart-meta"></footer><div id="src-pMovements" class="chart-sources"></div></article>
+      <article class="card chart-card"><header><span class="scope-chip">פלסטין</span><h3>כמה criminal lunatics הוחזקו במערכת?</h3></header><div id="pLunatics" class="chart"></div><footer id="meta-pLunatics" class="chart-meta"></footer><div id="src-pLunatics" class="chart-sources"></div></article>
+      <article class="card chart-card"><header><span class="scope-chip">פלסטין</span><h3>כיצד פעלה מערכת מבקרי בתי הסוהר?</h3></header><div id="pVisitors" class="chart"></div><footer id="meta-pVisitors" class="chart-meta"></footer><div id="src-pVisitors" class="chart-sources"></div></article>
+      <article class="card span-2"><header><span class="scope-chip">פלסטין</span><h3>מה מספרות ההערות האיכותניות על נקודות המפנה?</h3></header><div id="pNotesTimeline" class="timeline"></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="view-compare" class="view">
+  <div class="page-heading"><div><div class="eyebrow">PALESTINE + COMPARATORS</div><h2>השוואה מסונכרנת</h2><p>פלסטין נשארת קבועה. המערכת מציגה רק סדרות שניתן ליישר לפי מושג, בסיס זמן ומדד — ומסמנת במפורש השוואה מעורבת.</p></div></div>
+  <div class="lab-layout">
+    <aside class="card lab-controls">
+      <label>מושג מחקרי<select id="cmpConcept"></select></label>
+      <label>גרסת מדד<select id="cmpMeasure"></select></label>
+      <label>רמת גאוגרפיה<select id="cmpGeo"><option value="system">מערכת ארצית</option><option value="region">אזור</option><option value="facility">מוסד</option></select></label>
+      <label>עיבוד זמן<select id="cmpMode"><option value="annual">שנתי</option><option value="ma3">ממוצע נע 3 שנים</option><option value="ma5">ממוצע נע 5 שנים</option><option value="periodavg">ממוצע רב־שנתי</option><option value="index">Index 100</option><option value="change">שינוי % מתחילת התקופה</option></select></label>
+      <div class="year-controls"><label>מ־<input id="cmpY0" type="number"></label><label>עד<input id="cmpY1" type="number"></label></div>
+      <label class="inline-check"><input id="cmpOverlap" type="checkbox" checked>רק שנות חפיפה עם פלסטין</label>
+      <div><div class="field-label">מרחבים</div><div id="cmpJurisdictions" class="check-list"></div></div>
+      <button id="runCompare" class="primary full">הרצת ההשוואה</button>
+    </aside>
+    <div class="lab-results">
+      <div id="cmpWarning" class="callout hidden"></div>
+      <article class="card chart-card"><header class="split-head"><div><span class="scope-chip">★ פלסטין קבועה</span><h3 id="cmpTitle">השוואה</h3></div><button id="downloadCompare" class="secondary">הורדת הנתונים</button></header><div id="cmpMain" class="chart chart-xl"></div><footer id="meta-cmpMain" class="chart-meta"></footer><div id="src-cmpMain" class="chart-sources"></div></article>
+      <div class="dashboard-grid">
+        <article class="card chart-card"><header><h3>ממוצע רב־שנתי בתקופה</h3></header><div id="cmpAverages" class="chart"></div><footer id="meta-cmpAverages" class="chart-meta"></footer></article>
+        <article class="card chart-card"><header><h3>יחס לפלסטין באותה שנה</h3></header><div id="cmpPalRatio" class="chart"></div><footer id="meta-cmpPalRatio" class="chart-meta"></footer></article>
+        <article class="card chart-card"><header><h3>שינוי מצטבר מתחילת התקופה</h3></header><div id="cmpChange" class="chart"></div><footer id="meta-cmpChange" class="chart-meta"></footer></article>
+        <article class="card chart-card"><header><h3>כיסוי כרונולוגי של ההשוואה</h3></header><div id="cmpCoverage" class="chart"></div><footer id="meta-cmpCoverage" class="chart-meta"></footer></article>
+      </div>
+      <article class="card"><header><h3>מה בדיוק הושווה?</h3><p>הטבלה מציגה measure, time basis, Grade ומקורות לכל מרחב.</p></header><div class="table-wrap"><table id="cmpBasisTable"></table></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="view-atlas" class="view">
+  <div class="page-heading"><div><div class="eyebrow">SOURCE–MEASURE ATLAS</div><h2>אטלס המקורות והמדדים</h2><p>כל 46 המקורות הרשומים מופיעים כאן — גם מקורות טעונים וגם מקורות שעדיין ממתינים ל־ingest. כל 92 המדדים ניתנים לאיתור ולתצוגה.</p></div><div id="atlasStats" class="hero-stats compact"></div></div>
+  <div class="subnav" id="atlasTabs"><button class="subnav-button active" data-tab="sources">מקורות</button><button class="subnav-button" data-tab="measures">מדדים</button><button class="subnav-button" data-tab="network">רשת קשרים</button></div>
+  <div class="tab-panel active" data-atlas-panel="sources">
+    <div class="filterbar"><input id="sourceSearch" class="grow" placeholder="חיפוש מקור, מוסד או מרחב"><select id="sourceState"><option value="">כל המצבים</option><option value="loaded">טעון</option><option value="refreshable">ממתין לטעינה</option></select><select id="sourceRegion"><option value="">כל האזורים</option></select></div>
+    <div id="sourceGrid" class="source-grid"></div>
+    <article id="sourceDetail" class="card source-detail hidden"><div id="sourceDetailHead"></div><div id="sourceConceptChips" class="chip-row"></div><div class="source-detail-controls"><label>מדד<select id="sourceMeasure"></select></label><label>תצוגה<select id="sourceMode"><option value="annual">שנתי</option><option value="ma3">ממוצע נע 3 שנים</option><option value="periodavg">ממוצע לתקופה</option><option value="index">Index 100</option></select></label></div><div class="dashboard-grid"><div class="span-2"><div id="sourceChart" class="chart chart-lg"></div><footer id="meta-sourceChart" class="chart-meta"></footer><div id="src-sourceChart" class="chart-sources"></div></div><div><h3>כיסוי לפי מדד</h3><div id="sourceCoverage" class="chart"></div></div><div><h3>מקורות קשורים</h3><div id="relatedSources" class="related-list"></div></div></div><h3>כל הנתונים ממקור זה</h3><div class="table-wrap table-tall"><table id="sourceDataTable"></table></div></article>
+  </div>
+  <div class="tab-panel" data-atlas-panel="measures">
+    <div class="filterbar"><label>מושג<select id="measureConcept"></select></label><label>מדד<select id="measureSelect"></select></label><label>משנה<input id="measureY0" type="number"></label><label>עד שנה<input id="measureY1" type="number"></label><label>תצוגה<select id="measureMode"><option value="annual">שנתי</option><option value="ma3">ממוצע נע 3</option><option value="ma5">ממוצע נע 5</option><option value="periodavg">ממוצע רב־שנתי</option><option value="index">Index 100</option></select></label><button id="runMeasure" class="primary">הצגה</button></div>
+    <div id="measureDescription" class="callout info"></div>
+    <div class="dashboard-grid"><article class="card chart-card span-2"><header><h3 id="measureChartTitle">מדד</h3></header><div id="measureChart" class="chart chart-xl"></div><footer id="meta-measureChart" class="chart-meta"></footer><div id="src-measureChart" class="chart-sources"></div></article><article class="card chart-card"><header><h3>ממוצעים לפי מרחב</h3></header><div id="measureRanking" class="chart"></div></article><article class="card chart-card"><header><h3>כיסוי מקור × שנה</h3></header><div id="measureCoverage" class="chart"></div></article></div>
+    <article class="card"><header><h3>מיפוי המקורות למדד</h3></header><div class="table-wrap"><table id="measureSourceTable"></table></div></article>
+  </div>
+  <div class="tab-panel" data-atlas-panel="network">
+    <div class="filterbar"><select id="networkRegion"><option value="">כל האזורים</option></select><select id="networkConcept"><option value="">כל המושגים</option></select><label class="inline-check"><input id="networkRefreshable" type="checkbox" checked>הצג גם מקורות שטרם נטענו</label><button id="runNetwork" class="primary">עדכון הרשת</button></div>
+    <article class="card chart-card"><header><h3>כיצד מתחברים מקורות, מרחבים ומושגים?</h3><p>לחצו על מקור כדי לפתוח את דף המקור; לחצו על מושג כדי לעבור לאטלס המדדים.</p></header><div id="sourceNetwork" class="chart network-chart"></div><footer id="meta-sourceNetwork" class="chart-meta"></footer></article>
+  </div>
+</section>
+
+<section id="view-map" class="view">
+  <div class="page-heading"><div><div class="eyebrow">SPATIAL CRITIQUE</div><h2>מפת הנתונים והמערכות</h2><p>המפה אינה רק תיאור גאוגרפי: היא מראה היכן יש נתונים, מאיזה מקור, ובאיזו מידה הם ניתנים להשוואה לפלסטין.</p></div></div>
+  <div class="control-deck"><label>מושג<select id="mapConcept"></select></label><label>מדד<select id="mapMeasure"></select></label><label>זמן<select id="mapMode"><option value="year">שנה אחת</option><option value="period">ממוצע תקופתי</option></select></label><label class="map-year-control">שנה<input id="mapYear" type="number"></label><label class="map-period-control hidden">מ־<input id="mapY0" type="number"></label><label class="map-period-control hidden">עד<input id="mapY1" type="number"></label><button id="runMap" class="primary">עדכון</button></div>
+  <div id="mapQuestion" class="analysis-note"></div>
+  <div class="dashboard-grid"><article class="card chart-card span-2"><div id="worldMap" class="chart map-chart"></div><footer id="meta-worldMap" class="chart-meta"></footer><div id="src-worldMap" class="chart-sources"></div></article><article class="card chart-card"><header><h3>דירוג המרחבים</h3></header><div id="mapRanking" class="chart"></div></article><article class="card chart-card"><header><h3>צפיפות הנתונים לפי מרחב</h3></header><div id="mapDensity" class="chart"></div></article></div>
+  <div class="section-divider"><span>פלסטין: מפה מוסדית</span></div>
+  <div class="control-deck compact-controls"><label>מדד מוסדי<select id="facilityMapMeasure"></select></label><label>שנה<input id="facilityMapYear" type="number"></label><button id="runFacilityMap" class="secondary">עדכון מוסדות</button></div>
+  <div class="dashboard-grid"><article class="card chart-card span-2"><div id="palFacilityMap" class="chart map-chart"></div><footer id="meta-palFacilityMap" class="chart-meta"></footer><div id="src-palFacilityMap" class="chart-sources"></div></article><article class="card chart-card span-2"><header><h3>כיסוי נתונים: מרחב × שנה</h3></header><div id="globalCoverage" class="chart chart-lg"></div></article></div>
+</section>
+
+<section id="view-data" class="view">
+  <div class="page-heading"><div><div class="eyebrow">ALL OBSERVATIONS</div><h2>סייר הנתונים</h2><p>כל observation במערכת נגיש כאן, כולל מדדים source-specific, הערות איכותניות ו־proxy records.</p></div><button id="downloadFiltered" class="primary">הורדת הסינון</button></div>
+  <div class="filter-grid card"><label>מקור<select id="dataSource"></select></label><label>מרחב<select id="dataJurisdiction"></select></label><label>מושג<select id="dataConcept"></select></label><label>מדד<select id="dataMeasure"></select></label><label>בסיס זמן<select id="dataTimeBasis"></select></label><label>Grade<select id="dataGrade"></select></label><label>רמת גאוגרפיה<select id="dataGeo"></select></label><label>משנה<input id="dataY0" type="number"></label><label>עד שנה<input id="dataY1" type="number"></label><label class="span-2">חיפוש חופשי<input id="dataSearch" placeholder="מוסד, הערה, כותרת מקור, status..."></label><button id="resetData" class="secondary">איפוס</button></div>
+  <div class="data-summary"><b id="dataCount"></b><div class="pager"><button id="dataPrev">הקודם</button><span id="dataPage"></span><button id="dataNext">הבא</button></div></div>
+  <article class="card"><div class="table-wrap table-tall"><table id="dataTable"></table></div></article>
+  <div class="section-divider"><span>סיכום דינמי</span></div>
+  <div class="control-deck compact-controls"><label>קבץ לפי<select id="summaryDimension"><option value="jurisdiction">מרחב</option><option value="source_dataset">מקור</option><option value="concept_label_he">מושג</option><option value="measure">מדד</option><option value="year">שנה</option><option value="facility_name">מוסד</option></select></label><label>פעולה<select id="summaryAggregation"><option value="count">מספר observations</option><option value="mean">ממוצע ערכים</option><option value="sum">סכום ערכים</option></select></label><button id="runSummary" class="primary">צור סיכום</button></div><article class="card chart-card"><div id="dataSummaryChart" class="chart chart-lg"></div></article>
+</section>
+
+<section id="view-quality" class="view">
+  <div class="page-heading"><div><div class="eyebrow">DATA GOVERNANCE</div><h2>איכות, provenance וסנכרון</h2><p>הבדיקה מפרידה בין נאמנות למקור, הגדרה סטטיסטית, השוואתיות, סתירות וסטטוס טעינה.</p></div></div>
+  <div id="qualityKpis" class="kpi-grid"></div>
+  <div class="dashboard-grid"><article class="card"><header><h3>בדיקות סנכרון</h3></header><div id="syncAudit" class="audit-list"></div></article><article class="card chart-card"><header><h3>התפלגות Grades</h3></header><div id="gradeChart" class="chart"></div></article><article class="card chart-card span-2"><header><h3>כיסוי מושגים לפי מקור</h3></header><div id="sourceConceptHeatmap" class="chart chart-xl"></div></article><article class="card"><header><h3>ממצאי QA</h3></header><div id="qaList" class="audit-list tall"></div></article><article class="card"><header><h3>מקורות שממתינים ל־ingest</h3></header><div id="refreshableList" class="audit-list tall"></div></article><article class="card span-2"><header><h3>קבוצות חלופיות וסתירות מדויקות</h3><p>מופיעות רק כאשר יותר ממקור אחד מדווח על אותו measure ובאותם ממדים בדיוק.</p></header><div class="table-wrap"><table id="equivalenceTable"></table></div></article><article class="card span-2"><header><h3>בריאות הגרפים בהרצה הנוכחית</h3></header><div id="chartHealth" class="health-grid"></div></article></div>
+</section>
+
+<section id="view-downloads" class="view">
+  <div class="page-heading"><div><div class="eyebrow">REPRODUCIBLE OUTPUTS</div><h2>הורדות ותיעוד</h2><p>כל שכבת המיפוי, הנתונים והבדיקות זמינה כקובץ נפרד.</p></div></div>
+  <div id="downloadGrid" class="download-grid"></div>
+</section>
+
+</main>
+</div>
+<div id="drawerBackdrop" class="backdrop hidden"></div>
+<aside id="drawer" class="drawer" aria-label="פרטי observation"><button id="closeDrawer" class="drawer-close">×</button><div id="drawerContent"></div></aside>
+
+<script src="assets/plotly.min.js"></script>
+<script src="data/metadata.js"></script>
+<script src="data/sources.js"></script>
+<script src="data/qa.js"></script>
+<script src="data/measure_registry.js"></script>
+<script src="data/concept_registry.js"></script>
+<script src="data/source_measure_map.js"></script>
+<script src="data/source_relationships.js"></script>
+<script src="data/equivalence_groups.js"></script>
+<script src="data/source_concept_coverage.js"></script>
+<script src="data/jurisdictions.js"></script>
+<script src="data/sync_audit.js"></script>
+<script src="data/variable_crosswalk.js"></script>
+<script src="data/facility_crosswalk.js"></script>
+<script src="data/validation_rules.js"></script>
+<script src="data/observations.js"></script>
+<script src="data/world_outline.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

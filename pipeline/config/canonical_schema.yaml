@@ -1,0 +1,131 @@
+schema_name: colonial_prison_canonical
+version: 0.1.0
+fields:
+  - name: jurisdiction
+    type: string
+    required: true
+    description: "Normalized political/administrative jurisdiction"
+  - name: year
+    type: integer
+    required: true
+    description: "Canonical comparison year; for composite periods use year_end and preserve reporting_period"
+  - name: reporting_period
+    type: string
+    required: true
+    description: "Original reporting period label"
+  - name: year_start
+    type: integer
+    required: true
+    description: "Start year of reporting period"
+  - name: year_end
+    type: integer
+    required: true
+    description: "End year of reporting period"
+  - name: reference_date
+    type: string
+    required: false
+    description: "Reference date for stock measures, normally YYYY-12-31 when verified"
+  - name: geography_level
+    type: enum
+    required: true
+    description: "system / province / district / facility / person"
+  - name: geography_name
+    type: string
+    required: true
+    description: "Normalized geography name"
+  - name: facility_id
+    type: string
+    required: false
+    description: "Stable project facility identifier"
+  - name: facility_name
+    type: string
+    required: false
+    description: "Normalized facility name"
+  - name: facility_type
+    type: enum
+    required: false
+    description: "central_prison, district_lockup, detention_camp, labour_company, reformatory, etc."
+  - name: measure
+    type: enum
+    required: true
+    description: "Canonical measure code"
+  - name: measure_class
+    type: enum
+    required: true
+    description: "stock / flow / average / rate / denominator / text"
+  - name: legal_status
+    type: enum
+    required: false
+    description: "convicted / nonconvicted / remand / debtor / safe_custody / administrative_detainee / all_or_unspecified"
+  - name: sex
+    type: enum
+    required: false
+    description: "male / female / all_or_unspecified / unknown"
+  - name: age_group
+    type: string
+    required: false
+    description: "Normalized age band when available"
+  - name: sentence_band
+    type: enum
+    required: false
+    description: "0-3m / 3-12m / 1-5y / 5-15y / 15y+ / life / capital / source_specific"
+  - name: labour_status
+    type: enum
+    required: false
+    description: "employed / not_employed / unspecified"
+  - name: value
+    type: number
+    required: false
+    description: "Numeric value; null when source cell is narrative/unparsed"
+  - name: unit
+    type: enum
+    required: true
+    description: "persons / admissions / events / currency_original / rate_per_1000 / rate_per_10000 / rate_per_100000 / years / text"
+  - name: denominator
+    type: number
+    required: false
+    description: "Explicit denominator when measure is a rate"
+  - name: source_dataset
+    type: string
+    required: true
+    description: "Source registry ID"
+  - name: source_sheet
+    type: string
+    required: false
+    description: "Source sheet/table"
+  - name: source_column
+    type: string
+    required: false
+    description: "Source column letter/index or external variable name"
+  - name: source_header
+    type: string
+    required: false
+    description: "Exact original source header"
+  - name: source_table
+    type: string
+    required: false
+    description: "External table title / series ID"
+  - name: source_url
+    type: string
+    required: true
+    description: "Direct URL or dataset landing page"
+  - name: raw_value_text
+    type: string
+    required: false
+    description: "Exact source text when not cleanly numeric"
+  - name: transformation
+    type: string
+    required: true
+    description: "Transformation provenance"
+  - name: comparability_grade
+    type: enum
+    required: true
+    description: "A direct / B harmonizable / C proxy / D not comparable / U unreviewed"
+  - name: quality_flag
+    type: string
+    required: false
+    description: "Machine/human QA flag(s)"
+  - name: definition_verified
+    type: boolean
+    required: true
+    description: "Whether source definition is manually approved"

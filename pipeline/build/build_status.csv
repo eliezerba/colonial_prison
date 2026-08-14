@@ -1,0 +1,49 @@
+﻿source_id,state,message,rows,years_loaded,mode,updated_at
+PAL_V2,loaded,bundled_snapshot; workbook=palestine_snapshot.xlsx,1135,1921–1948,bundled_snapshot,2026-08-14T15:06:02Z
+NZ_OYB,loaded,Verified bundled Official Yearbook snapshot; network refresh can extend coverage.,58,1933–1943,verified_snapshot,2026-08-14T15:06:02Z
+CAN_HSC_Z,loaded,Verified bundled transcription of Statistics Canada Historical Statistics Section Z tables Z173–226.,361,1900–1950,verified_snapshot,2026-08-14T15:06:02Z
+HKG_ADMIN,loaded,Verified values transcribed from digitised Hong Kong Administrative Reports / Yearbooks; each observation retains its report URL.,27,1924–1949,verified_snapshot,2026-08-14T15:06:02Z
+NZ_AJHR_PRISONS,loaded,"Verified retrospective statistics from the official New Zealand Prisons Department report for 1929, digitised by Papers Past.",19,1925–1929,verified_snapshot,2026-08-14T15:06:02Z
+QLD_STHELENA,loaded,Bundled source-layer record-count observation. Explicitly proxy/non-population; network refresh can load person-level records.,1,1936–1936,verified_source_metadata_snapshot,2026-08-14T15:06:02Z
+TAS_PRISONERS,loaded,Bundled source-layer record-count observation. Explicitly proxy/non-population; network refresh can load person-level records.,1,1938–1938,verified_source_metadata_snapshot,2026-08-14T15:06:02Z
+ADEN_QDL_ADMIN,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,6,1921–1921,verified_web_table_snapshot,2026-08-14T15:06:03Z
+AUS_ABS_HIST,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,33,1900–1950,verified_web_table_snapshot,2026-08-14T15:06:03Z
+BAS_WPB_HIST,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,2,1937–1945,verified_web_table_snapshot,2026-08-14T15:06:03Z
+BEC_WPB_HIST,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,1,1938–1938,verified_web_table_snapshot,2026-08-14T15:06:03Z
+BGU_WPB_HIST,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,4,1921–1947,verified_web_table_snapshot,2026-08-14T15:06:03Z
+BHS_WPB_HIST,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,4,1932–1950,verified_web_table_snapshot,2026-08-14T15:06:03Z
+BMD_WPB_HIST,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,3,1920–1950,verified_web_table_snapshot,2026-08-14T15:06:03Z
+BOM_QDL_ADMIN,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,6,1923–1923,verified_web_table_snapshot,2026-08-14T15:06:03Z
+BRB_WPB_HIST,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,4,1929–1950,verified_web_table_snapshot,2026-08-14T15:06:03Z
+CEYLON_WPB_HIST,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,5,1920–1938,verified_web_table_snapshot,2026-08-14T15:06:03Z
+CYP_WPB_HIST,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,7,1920–1950,verified_web_table_snapshot,2026-08-14T15:06:03Z
+DMA_WPB_HIST,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,4,1933–1950,verified_web_table_snapshot,2026-08-14T15:06:03Z
+EAF_1938_JSH,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,28,1938–1938,verified_web_table_snapshot,2026-08-14T15:06:03Z
+EAW_PARL_HIST,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,18,1900–1950,verified_web_table_snapshot,2026-08-14T15:06:03Z
+FIJ_WPB_HIST,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,1,1920–1920,verified_web_table_snapshot,2026-08-14T15:06:03Z
+GCO_WPB_HIST,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,3,1920–1937,verified_web_table_snapshot,2026-08-14T15:06:03Z
+GMB_WPB_HIST,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,4,1922–1950,verified_web_table_snapshot,2026-08-14T15:06:03Z
+IND_HANSARD_ADM,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,27,1920–1928,verified_web_table_snapshot,2026-08-14T15:06:03Z
+IRL_WPB_TREND,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,12,1922–1950,verified_web_table_snapshot,2026-08-14T15:06:03Z
+JAM_WPB_HIST,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,7,1920–1950,verified_web_table_snapshot,2026-08-14T15:06:03Z
+KEN_WPB_TREND,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,5,1928–1948,verified_web_table_snapshot,2026-08-14T15:06:03Z
+MLT_WPB_HIST,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,5,1921–1950,verified_web_table_snapshot,2026-08-14T15:06:03Z
+MUS_WPB_HIST,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,4,1920–1948,verified_web_table_snapshot,2026-08-14T15:06:03Z
+MWI_WPB_TREND,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,4,1928–1950,verified_web_table_snapshot,2026-08-14T15:06:03Z
+NGA_AO,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,57,1920–1938,verified_web_table_snapshot,2026-08-14T15:06:03Z
+NZ_AJHR_PRISONS,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,36,1925–1930,verified_web_table_snapshot,2026-08-14T15:06:03Z
+NZ_OYB,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,67,1919–1919,verified_web_table_snapshot,2026-08-14T15:06:03Z
+SGP_WPB_TREND,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,1,1947–1947,verified_web_table_snapshot,2026-08-14T15:06:03Z
+SLB_WPB_HIST,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,2,1931–1938,verified_web_table_snapshot,2026-08-14T15:06:03Z
+SLE_WPB_HIST,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,3,1920–1938,verified_web_table_snapshot,2026-08-14T15:06:03Z
+SWZ_WPB_TREND,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,1,1938–1938,verified_web_table_snapshot,2026-08-14T15:06:03Z
+TTO_WPB_HIST,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,5,1920–1950,verified_web_table_snapshot,2026-08-14T15:06:03Z
+TZA_WPB_TREND,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,4,1927–1946,verified_web_table_snapshot,2026-08-14T15:06:03Z
+ZAF_WPB_TREND,loaded,Bundled verified transcription from a structured published table; each observation retains the source URL and table label.,2,1936–1936,verified_web_table_snapshot,2026-08-14T15:06:03Z
+IND_DSAL,refreshable,Run pipeline/build_all.py --network or use the included GitHub Actions workflow to attempt structured-source refresh.,0,,not_run,2026-08-14T15:06:03Z
+QLD_PHOTO,refreshable,Run pipeline/build_all.py --network or use the included GitHub Actions workflow to attempt structured-source refresh.,0,,not_run,2026-08-14T15:06:03Z
+QLD_TOOWOOMBA,refreshable,Run pipeline/build_all.py --network or use the included GitHub Actions workflow to attempt structured-source refresh.,0,,not_run,2026-08-14T15:06:03Z
+QLD_BRISBANE,refreshable,Run pipeline/build_all.py --network or use the included GitHub Actions workflow to attempt structured-source refresh.,0,,not_run,2026-08-14T15:06:03Z
+IRL_REGISTERS,refreshable,Run pipeline/build_all.py --network or use the included GitHub Actions workflow to attempt structured-source refresh.,0,,not_run,2026-08-14T15:06:03Z
+WA_BLUEBOOKS,refreshable,Run pipeline/build_all.py --network or use the included GitHub Actions workflow to attempt structured-source refresh.,0,,not_run,2026-08-14T15:06:03Z
+GUY_MNS,refreshable,Run pipeline/build_all.py --network or use the included GitHub Actions workflow to attempt structured-source refresh.,0,,not_run,2026-08-14T15:06:03Z

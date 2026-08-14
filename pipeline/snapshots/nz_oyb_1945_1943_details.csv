@@ -1,0 +1,4 @@
+measure,value,unit,source_header
+avg_daily_total,1100,persons,Daily average number of persons in confinement during 1943
+admissions_total,4622,admissions,Number received during 1943
+distinct_convicted_admissions,2482,persons,Distinct persons received under sentence during 1943
