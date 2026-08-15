@@ -1,3 +1,4 @@
+.language-toggle{border:1px solid var(--green);border-radius:8px;background:#fff;color:var(--green);padding:7px 10px;font-size:11px;font-weight:800;min-width:40px}.language-toggle:hover{background:var(--green-soft)}
 .year-controls{grid-template-columns:repeat(2,minmax(0,1fr))}.year-controls label{min-width:0}.year-controls input{width:100%;min-width:0}.jurisdiction-actions{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:5px}.jurisdiction-actions .inline-check{margin-inline-end:auto}.default-hint{font-size:10px;color:var(--green);font-weight:700}.picker-action{border:1px solid #c7d3cd;background:#fff;color:var(--green);border-radius:7px;padding:4px 7px;font-size:10px}.picker-action:hover{background:var(--green-soft)}
 :root{
  --ink:#26332d;--muted:#68766f;--bg:#f3f1eb;--panel:#fff;--line:#dfe5e1;

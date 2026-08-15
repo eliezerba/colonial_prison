@@ -24,6 +24,40 @@ const GRADE_RANK = {A:0,B:1,C:2,U:3,D:4};
 const SOURCE_TIER = {'official_publication':0,'research_compilation':1,'research_replication':1,'peer_reviewed_research_table':2,'secondary_structured_database':3,'structured_repository_or_microdata':4,'other':5};
 const $ = q => document.querySelector(q);
 const $$ = q => [...document.querySelectorAll(q)];
+const TRANSLATIONS = {
+  'פתיחת תפריט':'Open menu','פלסטין המנדטורית במרכז · נתונים, השוואה ומקורות':'Mandatory Palestine at the centre · data, comparison and sources','★ פלסטין היא מקרה הבסיס':'★ Palestine is the baseline case',
+  'מסלול מחקר':'Research path','מן השאלה אל הנתון, ומן הנתון בחזרה למקור':'From question to data, and back to source','פלסטין':'Palestine','הדשבורד המרכזי':'Main dashboard','השוואה':'Comparison','פלסטין מול מרחבים אחרים':'Palestine versus other jurisdictions','אטלס מקורות':'Source atlas','כל מקור וכל מדד':'Every source and measure','מפה':'Map','מרחבים ומוסדות':'Jurisdictions and facilities','נתונים':'Data','כל ה־observations':'All observations','איכות וקישוריות':'Quality and connectivity','QA, provenance וסנכרון':'QA, provenance and synchronization','הורדות':'Downloads','CSV ותיעוד':'CSV and documentation',
+  'מה השתנה במערכת הכליאה של פלסטין, ואיך מתחברים אוכלוסייה, admissions, מוסדות, עבודה, משמעת ומעצר מנהלי?':'How did Palestine’s prison system change, and how do population, admissions, facilities, labour, discipline and administrative detention connect?','כל גרף במסך זה מבוסס על נתוני פלסטין. לחיצה על נקודה פותחת את התא, הטבלה, הטרנספורמציה והמקור שמאחוריה.':'Every chart on this screen uses Palestine data. Click a point to open its cell, table, transformation and source.','משנה':'From year','עד שנה':'To year','אופן הצגה':'Display mode','ערכים שנתיים':'Annual values','ממוצע נע — 3 שנים':'3-year moving average','ממוצע נע — 5 שנים':'5-year moving average','ממוצע רב־שנתי לתקופה':'Period average','מדד 100 בתחילת התקופה':'Index 100 at period start','שינוי מצטבר באחוזים':'Cumulative percentage change','תקופות מהירות':'Quick periods','שנות ה־20':'1920s','הכול':'All years','עדכון':'Update','מערכת וזרמים':'System and flows','מוסדות ומרחב':'Facilities and space','עבודה, משמעת ורצידיביזם':'Labour, discipline and recidivism','אירועים, אנשים והערות':'Events, people and notes',
+  'השוואה מסונכרנת':'Synchronized comparison','פלסטין נשארת קבועה. המערכת מציגה רק סדרות שניתן ליישר לפי מושג, בסיס זמן ומדד — ומסמנת במפורש השוואה מעורבת.':'Palestine remains fixed. The system shows only series that can be aligned by concept, time basis and measure, and explicitly marks mixed comparisons.','מושג מחקרי':'Research concept','גרסת מדד':'Measure version','רמת גאוגרפיה':'Geographic level','מערכת ארצית':'National system','אזור':'Region','מוסד':'Facility','עיבוד זמן':'Time processing','שנתי':'Annual','ממוצע נע 3 שנים':'3-year moving average','שינוי % מתחילת התקופה':'Change % from period start','רק שנות חפיפה עם פלסטין':'Only years overlapping Palestine','מרחבים':'Jurisdictions','המסומנים הם ברירת המחדל':'Marked items are the default','כל המרחבים':'All jurisdictions','ברירת מחדל':'Default','נקה':'Clear','הרצת ההשוואה':'Run comparison','הורדת הנתונים':'Download data','פלסטין קבועה':'Palestine fixed','ממוצע רב־שנתי בתקופה':'Period average','יחס לפלסטין באותה שנה':'Ratio to Palestine in the same year','שינוי מצטבר מתחילת התקופה':'Cumulative change from period start','כיסוי כרונולוגי של ההשוואה':'Comparison chronological coverage','מה בדיוק הושווה?':'What exactly was compared?','הטבלה מציגה measure, time basis, Grade ומקורות לכל מרחב.':'The table shows the measure, time basis, grade and sources for each jurisdiction.','מרחב':'Jurisdiction','מדד בפועל':'Actual measure','בסיס זמן':'Time basis','מקורות':'Sources','כיסוי':'Coverage',
+  'אטלס המקורות והמדדים':'Source and measure atlas','מדדים':'Measures','רשת קשרים':'Relationship network','חיפוש מקור, מוסד או מרחב':'Search source, facility or jurisdiction','כל המצבים':'All states','טעון':'Loaded','ממתין לטעינה':'Awaiting ingest','כל האזורים':'All regions','תצוגה':'Display','ממוצע לתקופה':'Period average','ממוצעים לפי מרחב':'Averages by jurisdiction','כיסוי מקור × שנה':'Source × year coverage','מיפוי המקורות למדד':'Source-to-measure mapping','הצג גם מקורות שטרם נטענו':'Show sources not yet loaded','עדכון הרשת':'Update network','כיצד מתחברים מקורות, מרחבים ומושגים?':'How do sources, jurisdictions and concepts connect?','לחצו על מקור כדי לפתוח את דף המקור; לחצו על מושג כדי לעבור לאטלס המדדים.':'Click a source to open its page; click a concept to go to the measure atlas.',
+  'מפת הנתונים והמערכות':'Data and systems map','המפה אינה רק תיאור גאוגרפי: היא מראה היכן יש נתונים, מאיזה מקור, ובאיזו מידה הם ניתנים להשוואה לפלסטין.':'The map is more than geography: it shows where data exist, their sources, and how comparable they are with Palestine.','זמן':'Time','שנה אחת':'Single year','ממוצע תקופתי':'Period average','שנה':'Year','דירוג המרחבים':'Jurisdiction ranking','צפיפות הנתונים לפי מרחב':'Data density by jurisdiction','מדד מוסדי':'Facility measure','עדכון מוסדות':'Update facilities','כיסוי נתונים: מרחב × שנה':'Data coverage: jurisdiction × year',
+  'סייר הנתונים':'Data explorer','כל observation במערכת נגיש כאן, כולל מדדים source-specific, הערות איכותניות ו־proxy records.':'Every observation is available here, including source-specific measures, qualitative notes and proxy records.','הורדת הסינון':'Download filtered data','מקור':'Source','חיפוש חופשי':'Free-text search','איפוס':'Reset','הקודם':'Previous','הבא':'Next','סיכום דינמי':'Dynamic summary','קבץ לפי':'Group by','פעולה':'Operation','מספר observations':'Observation count','ממוצע ערכים':'Mean values','סכום ערכים':'Sum values','צור סיכום':'Create summary',
+  'איכות, provenance וסנכרון':'Quality, provenance and synchronization','הבדיקה מפרידה בין נאמנות למקור, הגדרה סטטיסטית, השוואתיות, סתירות וסטטוס טעינה.':'The audit separates source fidelity, statistical definition, comparability, contradictions and loading status.','בדיקות סנכרון':'Synchronization checks','התפלגות Grades':'Grade distribution','כיסוי מושגים לפי מקור':'Concept coverage by source','ממצאי QA':'QA findings','מקורות שממתינים ל־ingest':'Sources awaiting ingest','קבוצות חלופיות וסתירות מדויקות':'Exact alternatives and contradictions','בריאות הגרפים בהרצה הנוכחית':'Current chart health','הורדות ותיעוד':'Downloads and documentation','כל שכבת המיפוי, הנתונים והבדיקות זמינה כקובץ נפרד.':'Every mapping, data and audit layer is available as a separate file.',
+  'הגרף לא נטען':'Chart failed to load','אין נתונים מתאימים':'No matching data','פער נתונים':'Data gap','מקור ופרטים':'Source and details','פתח בסייר הנתונים':'Open in data explorer','השווה את המושג':'Compare this concept','דף המקור':'Source page','הערה':'Note','לא נמצאו observations קשורים.':'No related observations found.','אין מקור חלופי שמדווח על אותו measure ובאותם ממדים בדיוק.':'No alternative source reports the same measure with exactly the same dimensions.','לא נמצאו קשרים נוספים.':'No additional relationships found.'
+};
+let currentLanguage='he', translating=false;
+const translationSources=new WeakMap();
+function translateText(text){
+  const trimmed=text.trim(); if(!trimmed || currentLanguage==='he') return text;
+  let result=trimmed;
+  Object.keys(TRANSLATIONS).sort((a,b)=>b.length-a.length).forEach(source=>{ result=result.split(source).join(TRANSLATIONS[source]); });
+  return text.replace(trimmed,result);
+}
+function translateDom(root=document.body){
+  if(translating)return; translating=true;
+  const elements=root.nodeType===1?[root,...root.querySelectorAll('*')]:[];
+  elements.forEach(el=>{
+    [...el.childNodes].filter(node=>node.nodeType===3).forEach(node=>{
+      if(!translationSources.has(node)) translationSources.set(node,node.nodeValue);
+      const source=translationSources.get(node); node.nodeValue=currentLanguage==='en'?translateText(source):source;
+    });
+    ['placeholder','aria-label','title'].forEach(attr=>{ if(el.hasAttribute(attr)){ const key=`data-i18n-${attr}`; if(!el.hasAttribute(key)) el.setAttribute(key,el.getAttribute(attr)); const source=el.getAttribute(key); el.setAttribute(attr,currentLanguage==='en'?translateText(source):source); }});
+  });
+  document.documentElement.lang=currentLanguage; document.documentElement.dir=currentLanguage==='en'?'ltr':'rtl';
+  const toggle=$('#languageToggle'); if(toggle){toggle.textContent=currentLanguage==='en'?'עב':'EN';toggle.setAttribute('aria-label',currentLanguage==='en'?'עבור לעברית':'Switch to English');}
+  translating=false;
+}
+function setLanguage(language){ currentLanguage=language; try{localStorage.setItem('cpe-language',language);}catch(_){ } translateDom(); }
 const esc = x => String(x ?? '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 const n = x => { const v = Number(x); return Number.isFinite(v) ? v : null; };
 const fmt = x => n(x) === null ? '—' : new Intl.NumberFormat('en-US',{maximumFractionDigits:2}).format(n(x));
@@ -569,6 +603,7 @@ function initSelections(){
 }
 function bindEvents(){
   $$('.nav').forEach(b=>b.onclick=()=>nav(b.dataset.view));$('#mobileMenu').onclick=()=>$('#sidebar').classList.toggle('open');$$('[data-go]').forEach(x=>x.onclick=()=>nav(x.dataset.go));
+  $('#languageToggle').onclick=()=>setLanguage(currentLanguage==='en'?'he':'en');
   $$('#palTabs .subnav-button').forEach(b=>b.onclick=()=>{state.palTab=b.dataset.tab;$$('#palTabs .subnav-button').forEach(x=>x.classList.toggle('active',x===b));$$('[data-panel]').forEach(p=>p.classList.toggle('active',p.dataset.panel===state.palTab));renderPalestine();});
   $$('#palPresets button').forEach(b=>b.onclick=()=>{if(b.dataset.period==='full'){$('#palY0').value=1920;$('#palY1').value=1948;}else{const [a,z]=b.dataset.period.split(',');$('#palY0').value=a;$('#palY1').value=z;}renderPalestine();});$('#applyPal').onclick=renderPalestine;$('#palMode').onchange=renderPalestine;
   $('#cmpConcept').onchange=()=>{fillCompareMeasures();renderCompare();};$('#cmpMeasure').onchange=renderCompare;$('#runCompare').onclick=renderCompare;$('#cmpAllJurisdictions').onchange=event=>{setComparatorSelection(event.target.checked?'all':'default');};$('#cmpDefaultJurisdictions').onclick=()=>setComparatorSelection('default');$('#cmpClearJurisdictions').onclick=()=>setComparatorSelection('none');$('#downloadCompare').onclick=()=>downloadRows(state.compareRows,'comparison_underlying_observations.csv');
@@ -578,7 +613,7 @@ function bindEvents(){
   $('#closeDrawer').onclick=closeDrawer;$('#drawerBackdrop').onclick=closeDrawer;
 }
 function init(){
-  initSelections();bindEvents();const hash=location.hash.replace('#','');nav(['palestine','compare','atlas','map','data','quality','downloads'].includes(hash)?hash:'palestine',false);
+  initSelections();bindEvents();new MutationObserver(records=>records.forEach(record=>record.addedNodes.forEach(node=>{if(node.nodeType===1)translateDom(node)}))).observe(document.body,{childList:true,subtree:true});const hash=location.hash.replace('#','');nav(['palestine','compare','atlas','map','data','quality','downloads'].includes(hash)?hash:'palestine',false);setLanguage(localStorage.getItem('cpe-language')==='en'?'en':'he');
 }
 
 init();
