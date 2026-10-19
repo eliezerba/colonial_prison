@@ -30,7 +30,7 @@ jobs:
       - name: Install pipeline dependencies
         run: pip install -r pipeline/requirements.txt
       - name: Rebuild canonical data, mappings and static site
-        run: python pipeline/enrich_v7.py
+        run: python pipeline/enrich_v8.py
       - name: Validate JavaScript
         run: node --check site/assets/app.js
       - name: Run data, provenance and interface tests

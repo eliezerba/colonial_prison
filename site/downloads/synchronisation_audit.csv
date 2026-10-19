@@ -2,6 +2,6 @@
 pass,all observation sources registered,0,Every observation source is in the registry.
 pass,all observations mapped to concepts,0,No observation may fall outside the measure registry.
 pass,all source-measure pairs mapped,0,Every loaded source-measure pair has a mapping row.
-pass,complete observation provenance,0,"1977/1977 observations have URL, locator, source record id and transformation."
+pass,complete observation provenance,0,"2248/2248 observations have URL, locator, source record id and transformation."
 info,registered sources without loaded observations,7,IND_DSAL | QLD_PHOTO | QLD_TOOWOOMBA | QLD_BRISBANE | IRL_REGISTERS | WA_BLUEBOOKS | GUY_MNS
 info,alternative/equivalence groups,0,Groups preserve competing or duplicate observations rather than silently dropping them.

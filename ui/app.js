@@ -336,7 +336,7 @@ function renderPalEvents(y0,y1,mode){
 
 const ALIGNMENT = {
   custodial_population_total:['stock_eoy_total','population_point_total'],
-  custodial_population_average:['avg_daily_total'],
+  custodial_population_average:['avg_daily_total','avg_month_end_total'],
   admissions_flow:['admissions_total','distinct_persons_received','distinct_convicted_admissions','prisoners_handled_during_year'],
   population_rate:['stock_eoy_rate_per_100000','population_point_rate_per_100000','avg_daily_rate_per_100000','admissions_rate_per_100000','source_reported_avg_daily_rate_per_100000'],
   finance:['expenditure_per_avg_prisoner','expenditure_per_prisoner_day','prison_expenditure_net','prison_expenditure_total','prison_expenditure'],
@@ -364,14 +364,71 @@ function comparisonCandidates(jur,concept,measure,geo,y0,y1){
   }
   return preferRows(rows);
 }
+// Live availability: the system only recommends a comparator when Palestine and that
+// jurisdiction possess allowed observations for the selected definition and year(s).
+function validCompareRows(j,concept,measure,geo,y0,y1){
+  return comparisonCandidates(j,concept,measure,geo,y0,y1).filter(r=>!/(?:^|\s)blocked_from_comparison/.test(String(r.quality_flag||'')));
+}
+function compareAvailability(){
+  const concept=$('#cmpConcept').value, measure=$('#cmpMeasure').value, geo=$('#cmpGeo').value;
+  const y0=Number($('#cmpY0').value),y1=Number($('#cmpY1').value);
+  const inRange=Number.isFinite(y0)&&Number.isFinite(y1)&&y0<=y1;
+  const pal=inRange?validCompareRows(PAL,concept,measure,geo,y0,y1):[];
+  const py=new Set(pal.map(r=>Number(r.year)));
+  const overlap=$('#cmpOverlap').checked;
+  let ready=0,selected=0;
+  $$('#cmpJurisdictions input').forEach(input=>{
+    const label=input.closest('label');if(input.value===PAL){label.classList.remove('unavailable');return;}
+    const rows=inRange?validCompareRows(input.value,concept,measure,geo,y0,y1):[];
+    const common=uniq(rows.filter(r=>py.has(Number(r.year))).map(r=>Number(r.year)));
+    const usable=overlap?common.length:rows.length;
+    input.disabled=!usable||!py.size;
+    if(input.disabled)input.checked=false;
+    label.classList.toggle('unavailable',input.disabled);
+    const info=label.querySelector('.compare-count');
+    if(info)info.textContent=!rows.length?'אין נתונים':!common.length?'אין שנים משותפות':`${common.length} שנות חפיפה · ${rows.length} תצפיות`;
+    if(usable&&py.size)ready++;
+    if(input.checked)selected++;
+  });
+  const sel=$('#cmpMeasure');
+  [...sel.options].forEach(opt=>{
+    const m=opt.value;
+    const present=inRange && validCompareRows(PAL,concept,m,geo,y0,y1).length>0;
+    const valid=present && uniq(O.map(r=>r.jurisdiction)).some(j=>j!==PAL&&validCompareRows(j,concept,m,geo,y0,y1).some(r=>validCompareRows(PAL,concept,m,geo,y0,y1).some(p=>Number(p.year)===Number(r.year))));
+    opt.disabled=!valid;
+    opt.textContent=opt.textContent.replace(/ \[אין חפיפה\]$/,'')+(valid?'':' [אין חפיפה]');
+  });
+  // A stranded measure is replaced by a feasible one, if available.
+  if(sel.selectedOptions[0]?.disabled){const next=[...sel.options].find(x=>!x.disabled);if(next){sel.value=next.value;return compareAvailability();}}
+  // Geo options remain available for deliberate exploration, but unsupported
+  // levels are visibly identified rather than silently switching definitions.
+  [...$('#cmpGeo').options].forEach(opt=>{
+    const exists=validCompareRows(PAL,concept,measure,opt.value,y0,y1).length>0;
+    opt.textContent=opt.textContent.replace(/ \[ללא פלסטין\]$/,'')+(exists?'':' [ללא פלסטין]');
+  });
+  $('#cmpAvailableCount').textContent=`(${ready} זמינים)`;
+  $('#cmpAvailability').textContent=!inRange?'טווח שנים לא תקין.':'אין תצפיות לפלסטין בבחירה הזאת. בחרו רמת גאוגרפיה, מדד או שנים אחרים.';
+  if(py.size)$('#cmpAvailability').textContent=ready?`${ready} מרחבים זמינים להשוואה עם פלסטין; ${selected} מסומנים. בחירות ללא שנים משותפות מסומנות באפור.`:'אין כרגע מרחב עם נתונים בני־השוואה לפלסטין. נסו מושג אחר, סדרה מיושרת או טווח שנים רחב יותר.';
+  $('#runCompare').disabled=!py.size;
+}
+function resetCompare(){
+  $('#cmpConcept').value='custodial_population_total';fillCompareMeasures();
+  $('#cmpMeasure').value='__aligned__';$('#cmpGeo').value='system';$('#cmpMode').value='annual';
+  $('#cmpY0').value=1920;$('#cmpY1').value=1948;$('#cmpOverlap').checked=true;
+  $$('#cmpJurisdictions input').forEach(x=>x.checked=x.value===PAL);
+  compareAvailability();renderCompare();
+}
 function selectedComparators(){ return uniq([PAL,...$$('#cmpJurisdictions input:checked').map(x=>x.value)]); }
 function renderCompare(){
+  compareAvailability();
   const concept=$('#cmpConcept').value, measure=$('#cmpMeasure').value, geo=$('#cmpGeo').value, mode=$('#cmpMode').value, y0=n($('#cmpY0').value), y1=n($('#cmpY1').value), jurs=selectedComparators();
-  let rows=[]; for(const j of jurs) rows.push(...comparisonCandidates(j,concept,measure,geo,y0,y1));
+  let rows=[]; for(const j of jurs) rows.push(...comparisonCandidates(j,concept,measure,geo,y0,y1).filter(r=>!String(r.quality_flag||'').includes('blocked_from_comparison')));
   let points0=points(rows,r=>jurLabel(r.jurisdiction));
   const palYears=new Set(points0.filter(p=>p.name.includes('פלסטין')).map(p=>p.x));
   if($('#cmpOverlap').checked) points0=points0.filter(p=>palYears.has(p.x));
   const warnings=[];
+  if(rows.some(r=>String(r.measure||'').startsWith('avg_month_end_'))) warnings.push('אנגליה וויילס: ממוצע של 12 מצבות סוף־חודש, ולא ממוצע יומי מלא. היחס לפלסטין הוא השוואה מקורבת בלבד.');
+  if(jurs.includes('Uganda') && concept==='custodial_population_total') warnings.push('אוגנדה: הסדרה החדשה מ־World Prison Brief הוחרגה מהשוואות בגלל סתירה משמעותית למקור 1938; הנתונים זמינים באטלס ובסייר הנתונים.');
   if(!palYears.size) warnings.push('לפלסטין אין observation מתאים לבחירה. בחרו מושג, מדד או טווח אחר.');
   const bases=uniq(flattenRows(points0).map(r=>r.time_basis)); if(bases.length>1) warnings.push(`ההשוואה משלבת בסיסי זמן: ${bases.join(' / ')}.`);
   const units=uniq(flattenRows(points0).map(r=>r.unit)); if(units.length>1 && mode!=='index' && mode!=='change') warnings.push(`היחידות אינן אחידות: ${units.join(' / ')}. מומלץ לעבור ל־Index 100.`);
@@ -395,13 +452,14 @@ function openSource(sid){
 function renderSourceCards(){
   const q=String($('#sourceSearch').value||'').toLowerCase(),stateFilter=$('#sourceState').value,region=$('#sourceRegion').value;
   const rows=S.filter(s=>(!q||JSON.stringify(s).toLowerCase().includes(q))&&(!stateFilter||s.state===stateFilter)&&(!region||s.region===region)).sort((a,b)=>a.jurisdiction===PAL?-1:b.jurisdiction===PAL?1:(n(b.loaded_observations)||0)-(n(a.loaded_observations)||0));
-  $('#sourceGrid').innerHTML=rows.map(s=>`<article class="source-card ${s.jurisdiction===PAL?'pal-source':''}" data-source-card="${esc(s.source_id)}"><div class="source-card-top"><div><div class="eyebrow">${esc(s.source_id)}</div><h3>${s.jurisdiction===PAL?'★ ':''}${esc(s.name)}</h3></div><span class="status-chip ${esc(s.state||'')}">${s.state==='loaded'?'טעון':s.state==='refreshable'?'ממתין לטעינה':esc(s.state||'')}</span></div><p><b>${esc(jurLabel(s.jurisdiction))}</b> · ${esc(s.region||'')}</p><p>${fmt(s.loaded_observations||0)} observations · ${esc(s.loaded_min_year||'—')}–${esc(s.loaded_max_year||'—')}</p><p>${esc(s.format||'')} · ${esc(s.evidence_tier||'')}</p></article>`).join('')||'<div class="data-gap">לא נמצאו מקורות.</div>';
-  $$('[data-source-card]').forEach(c=>c.onclick=()=>renderSourceDetail(c.dataset.sourceCard));
+  $('#sourceGrid').innerHTML=rows.map(s=>`<article class="source-card ${s.jurisdiction===PAL?'pal-source':''}" data-source-card="${esc(s.source_id)}"><div class="source-card-top"><div><div class="eyebrow">${esc(s.source_id)}</div><h3>${s.jurisdiction===PAL?'★ ':''}${esc(s.name)}</h3></div><span class="status-chip ${esc(s.state||'')}">${s.state==='loaded'?'טעון':s.state==='refreshable'?'ממתין לטעינה':esc(s.state||'')}</span></div><p><b>${esc(jurLabel(s.jurisdiction))}</b> · ${esc(s.region||'')}</p><p>${fmt(s.loaded_observations||0)} observations · ${esc(s.loaded_min_year||'—')}–${esc(s.loaded_max_year||'—')}</p><p>${esc(s.format||'')} · ${esc(s.evidence_tier||'')}</p><div class="source-card-actions"><button type="button" class="secondary" data-source-profile="${esc(s.source_id)}">דף המקור והנתונים</button>${s.url?`<a class="source-external" href="${esc(s.url)}" target="_blank" rel="noopener noreferrer" data-source-external="${esc(s.source_id)}">מקור באינטרנט ↗</a>`:'<span class="source-missing">אין כתובת אינטרנט ברשומה</span>'}</div></article>`).join('')||'<div class="data-gap">לא נמצאו מקורות.</div>';
+  $$('[data-source-card]').forEach(c=>c.onclick=e=>{if(e.target.closest('a,button'))return;renderSourceDetail(c.dataset.sourceCard);});
+  $$('[data-source-profile]').forEach(b=>b.onclick=()=>renderSourceDetail(b.dataset.sourceProfile));
 }
 function renderSourceDetail(sid){
   const s=sourceById[sid]; if(!s) return; state.selectedSource=sid; const rows=O.filter(r=>r.source_dataset===sid), numericRows=numeric(rows), maps=SM.filter(x=>x.source_dataset===sid), concepts=uniq(maps.map(x=>x.concept_id)), measures=uniq(maps.map(x=>x.measure));
   $('#sourceDetail').classList.remove('hidden');
-  $('#sourceDetailHead').innerHTML=`<div class="split-head"><div><div class="eyebrow">${esc(s.source_id)} · ${esc(s.source_family||'')}</div><h2>${s.jurisdiction===PAL?'★ ':''}${esc(s.name)}</h2><p>${esc(s.jurisdiction)} · ${esc(s.institution||'')} · ${esc(s.years_available||'')}</p></div><div class="source-link-row">${s.url?`<a class="secondary" target="_blank" href="${esc(s.url)}">פתיחת המקור ↗</a>`:''}<button id="sourceToData" class="secondary">כל הנתונים בסייר</button></div></div><div class="kpi-grid"><div class="kpi"><strong>${fmt(rows.length)}</strong><span>observations</span></div><div class="kpi"><strong>${fmt(measures.length)}</strong><span>מדדים</span></div><div class="kpi"><strong>${fmt(concepts.length)}</strong><span>מושגים</span></div><div class="kpi"><strong>${rows.length?`${Math.min(...rows.map(r=>n(r.year)).filter(x=>x!==null))}–${Math.max(...rows.map(r=>n(r.year)).filter(x=>x!==null))}`:'—'}</strong><span>כיסוי טעון</span></div><div class="kpi"><strong>${esc(s.state||'')}</strong><span>סטטוס</span></div></div><div class="callout info">${esc(s.message||s.ingest_strategy||'')}</div>`;
+  $('#sourceDetailHead').innerHTML=`<div class="split-head"><div><div class="eyebrow">${esc(s.source_id)} · ${esc(s.source_family||'')}</div><h2>${s.jurisdiction===PAL?'★ ':''}${esc(s.name)}</h2><p>${esc(s.jurisdiction)} · ${esc(s.institution||'')} · ${esc(s.years_available||'')}</p></div><div class="source-link-row">${s.url?`<a class="secondary" target="_blank" href="${esc(s.url)}">פתיחת המקור ↗</a>`:''}<button id="sourceToData" class="secondary">כל הנתונים בסייר</button></div></div><div class="kpi-grid"><div class="kpi"><strong>${fmt(rows.length)}</strong><span>observations</span></div><div class="kpi"><strong>${fmt(measures.length)}</strong><span>מדדים</span></div><div class="kpi"><strong>${fmt(concepts.length)}</strong><span>מושגים</span></div><div class="kpi"><strong>${rows.length?`${Math.min(...rows.map(r=>n(r.year)).filter(x=>x!==null))}–${Math.max(...rows.map(r=>n(r.year)).filter(x=>x!==null))}`:'—'}</strong><span>כיסוי טעון</span></div><div class="kpi"><strong>${esc(s.state||'')}</strong><span>סטטוס</span></div></div><div class="callout info"><b>תיאור המקור והיקף הקליטה:</b> ${esc(s.population_measures||'')} ${esc(s.other_measures||'')}</div><div class="source-method"><b>אופן הקליטה:</b> ${esc(s.ingest_strategy||'לא צוין')}<br><b>מצב אימות:</b> ${esc(s.message||s.state||'')}<br><b>גישה:</b> ${esc(s.structured_access||s.format||'')} · <b>רמת נתונים:</b> ${esc(s.data_level||'לא צוינה')}<br><b>מקור רשמי:</b> ${s.url?`<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.url)} ↗</a>`:'קישור חיצוני חסר ברשומת המקור'}</div>`;
   $('#sourceConceptChips').innerHTML=concepts.map(c=>`<button class="measure-chip" data-concept-open="${esc(c)}">${esc(conceptLabel(c))}</button>`).join('')||'<span>טרם נטענו נתונים.</span>';
   $('#sourceMeasure').innerHTML=measures.map(m=>`<option value="${esc(m)}">${esc(measureLabel(m))}</option>`).join('');
   $('#sourceMeasure').disabled=!measures.length; $('#sourceMode').disabled=!measures.length;
@@ -462,7 +520,7 @@ function mapRows(){
   const alignedForPeriod=(y0,y1)=>{
     const all=[];
     for(const jur of uniq(O.map(r=>r.jurisdiction))) all.push(...comparisonCandidates(jur,concept,m,'system',y0,y1));
-    return all;
+    return all.filter(r=>!String(r.quality_flag||'').includes('blocked_from_comparison'));
   };
   const label=m==='__aligned__'?`${conceptLabel(concept)} — סדרה מיושרת`:measureLabel(m);
   if(mode==='year'){
@@ -534,7 +592,7 @@ function renderChartHealth(){
 }
 function renderDownloads(){
   const files=[
-    ['observations.csv',`כל ${O.length.toLocaleString()} ה־observations`],['source_registry.csv',`כל ${S.length} המקורות, טעונים וממתינים`],['measure_registry.csv',`מיפוי ${MR.length} המדדים`],['concept_registry.csv',`מילון ${CR.length} המושגים`],['source_measure_map.csv','כל צמדי מקור × מדד'],['source_concept_coverage.csv','כיסוי מקור × מושג'],['source_relationships.csv','קשרים בין מקורות'],['observation_equivalence_groups.csv','חלופות מדויקות בלבד'],['jurisdiction_registry.csv','מרחבים וקואורדינטות'],['facility_crosswalk.csv','מוסדות פלסטין'],['synchronisation_audit.csv','בדיקות סנכרון'],['quality_audit.csv','ממצאי QA'],['provenance_audit.csv','ביקורת provenance ברמת observation'],['source_verification_audit.csv','סיכום אימות לפי מקור'],['variable_crosswalk.csv','Crosswalk משתנים'],['palestine_data_dictionary.csv','מילון פלסטין'],['canonical_schema.csv','הסכמה הקנונית'],['SOURCE_MAPPING_V7.md','תיעוד מלא של מיפוי המקורות והמדדים'],['SYSTEM_QA_V7.md','דוח איכות ובדיקת דפדפן'],['browser_qa_v7.json','תוצאות runtime לכל מסך ולשונית'],['DATA_SOURCES.md','קטלוג כל המקורות'],['README_HE.md','הוראות שימוש בעברית']
+    ['observations.csv',`כל ${O.length.toLocaleString()} ה־observations`],['source_registry.csv',`כל ${S.length} המקורות, טעונים וממתינים`],['measure_registry.csv',`מיפוי ${MR.length} המדדים`],['concept_registry.csv',`מילון ${CR.length} המושגים`],['source_measure_map.csv','כל צמדי מקור × מדד'],['source_concept_coverage.csv','כיסוי מקור × מושג'],['source_relationships.csv','קשרים בין מקורות'],['observation_equivalence_groups.csv','חלופות מדויקות בלבד'],['jurisdiction_registry.csv','מרחבים וקואורדינטות'],['facility_crosswalk.csv','מוסדות פלסטין'],['synchronisation_audit.csv','בדיקות סנכרון'],['quality_audit.csv','ממצאי QA'],['provenance_audit.csv','ביקורת provenance ברמת observation'],['source_verification_audit.csv','סיכום אימות לפי מקור'],['variable_crosswalk.csv','Crosswalk משתנים'],['palestine_data_dictionary.csv','מילון פלסטין'],['canonical_schema.csv','הסכמה הקנונית'],['DATA_EXPANSION_V8.md','מה חדש בגרסה 8: מקורות חדשים, חילוץ והסתייגויות'],['V8_QA_REPORT.md','דוח אימות ובדיקות גרסה 8'],['browser_qa_v8.json','תוצאות בדיקות דפדפן לגרסה 8'],['EAW_V7_RECLASSIFICATION_AUDIT.csv','ביקורת תיקון בסיס הזמן באנגליה וויילס'],['SOURCE_MAPPING_V7.md','תיעוד מיפוי המקורות של גרסה 7'],['SYSTEM_QA_V7.md','בדיקות המערכת המקוריות של גרסה 7'],['browser_qa_v7.json','תוצאות runtime לכל מסך ולשונית'],['DATA_SOURCES.md','קטלוג כל המקורות'],['README_HE.md','הוראות שימוש בעברית'],['V8_1_UX_AND_DEPLOYMENT.md','הסבר גרסה 8.1: עיצוב ופרסום GitHub Pages']
   ];
   $('#downloadGrid').innerHTML=files.map(([f,d])=>`<a class="download-card" href="downloads/${encodeURIComponent(f)}" download><b>${esc(f)}</b><span>${esc(d)}</span><strong>הורדה ↓</strong></a>`).join('');
 }
@@ -553,7 +611,7 @@ function initSelections(){
   $('#atlasStats').innerHTML=[[S.length,'מקורות רשומים'],[uniq(O.map(r=>r.source_dataset)).length,'מקורות טעונים'],[MR.length,'מדדים'],[CR.length,'מושגים']].map(([v,l])=>`<div class="mini-stat"><strong>${esc(v)}</strong><span>${esc(l)}</span></div>`).join('');
   $('#palY0').value=1920;$('#palY1').value=1948;$('#cmpY0').value=1920;$('#cmpY1').value=1948;$('#measureY0').value=minY;$('#measureY1').value=maxY;$('#mapYear').value=1938;$('#mapY0').value=1930;$('#mapY1').value=1944;$('#facilityMapYear').value=1938;$('#dataY0').value=minY;$('#dataY1').value=maxY;
   const compareConcepts=CR.filter(c=>O.some(r=>r.concept_id===c.concept_id&&r.jurisdiction===PAL));fillSelect($('#cmpConcept'),compareConcepts,{label:x=>x.concept_label_he,value:x=>x.concept_id});$('#cmpConcept').value='custodial_population_total';fillCompareMeasures();
-  $('#cmpJurisdictions').innerHTML=uniq(O.map(r=>r.jurisdiction)).sort((a,b)=>a===PAL?-1:b===PAL?1:a.localeCompare(b)).map(j=>`<label class="${j===PAL?'pal-fixed':''}"><input type="checkbox" value="${esc(j)}" ${[PAL,'New Zealand','Canada','Ceylon','Jamaica','British Nigeria','Kenya','Hong Kong'].includes(j)?'checked':''} ${j===PAL?'disabled':''}><span>${esc(jurLabel(j))}</span></label>`).join('');
+  $('#cmpJurisdictions').innerHTML=uniq(O.map(r=>r.jurisdiction)).sort((a,b)=>a===PAL?-1:b===PAL?1:a.localeCompare(b)).map(j=>`<label class="${j===PAL?'pal-fixed':''}"><input type="checkbox" value="${esc(j)}" ${[PAL,'New Zealand','Canada','Ceylon','Jamaica','British Nigeria','Kenya','Hong Kong'].includes(j)?'checked':''} ${j===PAL?'disabled':''}><span>${esc(jurLabel(j))}</span><small class="compare-count"></small></label>`).join('');
   fillSelect($('#sourceRegion'),uniq(S.map(s=>s.region)).sort(),{all:true});fillSelect($('#networkRegion'),uniq(S.map(s=>s.region)).sort(),{all:true});fillSelect($('#networkConcept'),CR,{all:true,label:x=>x.concept_label_he,value:x=>x.concept_id});
   fillSelect($('#measureConcept'),CR,{label:x=>x.concept_label_he,value:x=>x.concept_id});$('#measureConcept').value='custodial_population_total';fillMeasureSelect();$('#measureSelect').value='stock_eoy_total';
   fillSelect($('#mapConcept'),CR.filter(c=>MR.some(m=>m.concept_id===c.concept_id&&m.comparable_across_jurisdictions)),{label:x=>x.concept_label_he,value:x=>x.concept_id});$('#mapConcept').value='custodial_population_total';fillMapMeasures();$('#mapMeasure').value='__aligned__';
@@ -564,7 +622,7 @@ function bindEvents(){
   $$('.nav').forEach(b=>b.onclick=()=>nav(b.dataset.view));$('#mobileMenu').onclick=()=>$('#sidebar').classList.toggle('open');$$('[data-go]').forEach(x=>x.onclick=()=>nav(x.dataset.go));
   $$('#palTabs .subnav-button').forEach(b=>b.onclick=()=>{state.palTab=b.dataset.tab;$$('#palTabs .subnav-button').forEach(x=>x.classList.toggle('active',x===b));$$('[data-panel]').forEach(p=>p.classList.toggle('active',p.dataset.panel===state.palTab));renderPalestine();});
   $$('#palPresets button').forEach(b=>b.onclick=()=>{if(b.dataset.period==='full'){$('#palY0').value=1920;$('#palY1').value=1948;}else{const [a,z]=b.dataset.period.split(',');$('#palY0').value=a;$('#palY1').value=z;}renderPalestine();});$('#applyPal').onclick=renderPalestine;$('#palMode').onchange=renderPalestine;
-  $('#cmpConcept').onchange=()=>{fillCompareMeasures();renderCompare();};$('#cmpMeasure').onchange=renderCompare;$('#runCompare').onclick=renderCompare;$('#downloadCompare').onclick=()=>downloadRows(state.compareRows,'comparison_underlying_observations.csv');
+  $('#cmpConcept').onchange=()=>{fillCompareMeasures();compareAvailability();renderCompare();};$('#cmpMeasure').onchange=()=>{compareAvailability();renderCompare();}; ['cmpGeo','cmpY0','cmpY1','cmpOverlap'].forEach(id=>$('#'+id).addEventListener('change',()=>{compareAvailability();renderCompare();}));$('#cmpJurisdictions').addEventListener('change',()=>{compareAvailability();renderCompare();});$('#resetCompare').onclick=resetCompare;$('#runCompare').onclick=renderCompare;$('#downloadCompare').onclick=()=>downloadRows(state.compareRows,'comparison_underlying_observations.csv');
   $$('#atlasTabs .subnav-button').forEach(b=>b.onclick=()=>activateAtlasTab(b.dataset.tab));$('#sourceSearch').oninput=renderSourceCards;$('#sourceState').onchange=renderSourceCards;$('#sourceRegion').onchange=renderSourceCards;$('#measureConcept').onchange=()=>{fillMeasureSelect();renderMeasureAtlas();};$('#runMeasure').onclick=renderMeasureAtlas;$('#runNetwork').onclick=renderNetwork;
   $('#mapConcept').onchange=()=>{fillMapMeasures();renderMap();};$('#mapMode').onchange=()=>{$$('.map-year-control').forEach(x=>x.classList.toggle('hidden',$('#mapMode').value!=='year'));$$('.map-period-control').forEach(x=>x.classList.toggle('hidden',$('#mapMode').value!=='period'));};$('#runMap').onclick=renderMap;$('#runFacilityMap').onclick=renderFacilityMap;
   ['dataSource','dataJurisdiction','dataConcept','dataMeasure','dataTimeBasis','dataGrade','dataGeo','dataY0','dataY1'].forEach(id=>$('#'+id).onchange=()=>{state.dataPage=0;renderData();});$('#dataSearch').oninput=()=>{state.dataPage=0;renderData();};$('#dataPrev').onclick=()=>{state.dataPage=Math.max(0,state.dataPage-1);renderData();};$('#dataNext').onclick=()=>{state.dataPage++;renderData();};$('#resetData').onclick=()=>{['dataSource','dataJurisdiction','dataConcept','dataMeasure','dataTimeBasis','dataGrade','dataGeo'].forEach(id=>$('#'+id).value='');$('#dataSearch').value='';$('#dataY0').value=META.min_year;$('#dataY1').value=META.max_year;state.dataPage=0;renderData();};$('#downloadFiltered').onclick=()=>downloadRows(state.dataRows,'filtered_observations.csv');$('#runSummary').onclick=renderDataSummary;

@@ -6,7 +6,7 @@ PY=python3
 source .venv/bin/activate
 python -m pip install --upgrade pip
 pip install -r pipeline/requirements.txt
-python pipeline/enrich_v7.py
+python pipeline/enrich_v8.py
 node --check site/assets/app.js
 python -m unittest discover -s tests -v
 open site/index.html

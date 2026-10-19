@@ -3,7 +3,7 @@ Aden,Middle East,12.78,45.03,6,ADEN_QDL_ADMIN
 Australia,Oceania,-25.3,133.8,33,AUS_ABS_HIST
 Bahamas,Caribbean,25.04,-77.4,4,BHS_WPB_HIST
 Barbados,Caribbean,13.19,-59.54,4,BRB_WPB_HIST
-Basutoland,Southern Africa,-29.6,28.2,2,BAS_WPB_HIST
+Basutoland,Southern Africa,-29.6,28.2,8,BAS_COL_REPORT_1937 | BAS_WPB_HIST
 Bechuanaland,Southern Africa,-22.3,24.7,1,BEC_WPB_HIST
 Bermuda,Atlantic,32.3,-64.75,3,BMD_WPB_HIST
 Bombay Presidency,South Asia,19.08,72.88,6,BOM_QDL_ADMIN
@@ -16,11 +16,11 @@ Canada,North America,56.1,-106.3,361,CAN_HSC_Z
 Ceylon,South Asia,7.87,80.77,5,CEYLON_WPB_HIST
 Cyprus,Mediterranean,35.1,33.4,7,CYP_WPB_HIST
 Dominica,Caribbean,15.4,-61.37,4,DMA_WPB_HIST
-England & Wales,Europe,52.4,-1.5,18,EAW_PARL_HIST
+England & Wales,Europe,52.4,-1.5,99,EAW_PARL_HIST
 Fiji,Oceania,-17.7,178.1,1,FIJ_WPB_HIST
 Gambia,West Africa,13.44,-15.31,4,GMB_WPB_HIST
 Gold Coast,West Africa,7.95,-1.02,3,GCO_WPB_HIST
-Hong Kong,East Asia,22.32,114.17,27,HKG_ADMIN
+Hong Kong,East Asia,22.32,114.17,35,HKG_ADMIN
 Ireland,Europe,53.2,-8.2,12,IRL_WPB_TREND
 Ireland under British rule,Other,,,0,
 Jamaica,Caribbean,18.1,-77.3,7,JAM_WPB_HIST
@@ -28,11 +28,13 @@ Kenya,East Africa,-0.02,37.9,9,EAF_1938_JSH | KEN_WPB_TREND
 Malta,Mediterranean,35.94,14.38,5,MLT_WPB_HIST
 Mandatory Palestine,Middle East,31.8,35.2,1135,PAL_V2
 Mauritius,Indian Ocean,-20.2,57.5,4,MUS_WPB_HIST
-New Zealand,Oceania,-41.3,174.8,180,NZ_AJHR_PRISONS | NZ_OYB
+New Zealand,Oceania,-41.3,174.8,210,NZ_AJHR_PRISONS | NZ_OYB
+Northern Ireland,Europe,54.7877,-6.4923,110,NIR_AAS_1937_47
 Northern Rhodesia,Southern Africa,-13.1,27.8,4,EAF_1938_JSH
 Nyasaland,Southern Africa,-13.25,34.3,8,EAF_1938_JSH | MWI_WPB_TREND
 Queensland – St Helena Penal Establishment,Oceania,-27.39,153.23,1,QLD_STHELENA
 "Queensland, Australia",Other,,,0,
+Scotland,Europe,56.4907,-4.2026,31,SCT_UK_PARL_2017
 Sierra Leone,West Africa,8.46,-11.78,3,SLE_WPB_HIST
 Singapore,Southeast Asia,1.35,103.82,1,SGP_WPB_TREND
 Solomon Islands,Oceania,-9.65,160.2,2,SLB_WPB_HIST
@@ -42,6 +44,6 @@ Swaziland,Southern Africa,-26.5,31.5,1,SWZ_WPB_TREND
 Tanganyika,East Africa,-6.3,34.8,8,EAF_1938_JSH | TZA_WPB_TREND
 Tasmania – Hobart Gaol,Oceania,-42.88,147.33,1,TAS_PRISONERS
 Trinidad & Tobago,Caribbean,10.7,-61.2,5,TTO_WPB_HIST
-Uganda,East Africa,1.37,32.29,4,EAF_1938_JSH
+Uganda,East Africa,1.37,32.29,9,EAF_1938_JSH | UGA_WPB_HIST
 Western Australia,Other,,,0,
 Zanzibar,East Africa,-6.16,39.2,4,EAF_1938_JSH

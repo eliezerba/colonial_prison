@@ -5,7 +5,7 @@ from pathlib import Path
 import pandas as pd
 from common import ROOT,SITE,BUILD,CONFIG,CANONICAL_COLUMNS,ensure_dirs,canonicalize,read_registry,save_status,append_js,write_js,copy_configs_to_site,status,year_span
 from ingest_palestine import ingest as ingest_palestine
-from ingest_snapshots import ingest_nz_snapshot, ingest_canada_snapshot, ingest_hong_kong_snapshot, ingest_nz_ajhr_snapshot, ingest_microdata_source_snapshots, ingest_additional_verified_snapshots
+from ingest_snapshots import ingest_nz_snapshot, ingest_canada_snapshot, ingest_hong_kong_snapshot, ingest_nz_ajhr_snapshot, ingest_microdata_source_snapshots, ingest_additional_verified_snapshots, ingest_v8_verified_snapshots
 from ingest_external import ingest_all
 
 def _best_value(g, measure):
@@ -101,9 +101,9 @@ def full_qa(df):
     # World Prison Brief historical trend rows are useful secondary comparisons, but the exact within-year reference date is not specified.
     wpb=df[df['source_dataset'].astype(str).str.endswith('_WPB_HIST')]
     if len(wpb):
-        bad=wpb[~wpb['comparability_grade'].isin(['B','C','D'])]
+        bad=wpb[wpb['comparability_grade'].eq('A')]
         if len(bad): qa.append({'source':'WPB_HIST','severity':'error','check':'historical reference-date semantics','observed':len(bad),'message':'Historical World Prison Brief trend rows must not be Grade A unless an exact reference date is independently verified.'})
-        qa.append({'source':'WPB_HIST','severity':'info','check':'historical reference-date semantics','observed':len(wpb),'message':'World Prison Brief historical population totals are retained as Grade B because the precise within-year reference date is not stated at the level required for exact 31 December equivalence.'})
+        qa.append({'source':'WPB_HIST','severity':'info','check':'historical reference-date semantics','observed':len(wpb),'message':'World Prison Brief historical population totals are retained as Grade B, or Grade U for Uganda unresolved source conflict, rather than exact year-end equivalents.'})
 
     # Raw cross-jurisdiction unit audit. Different original currencies are preserved but must not be compared as raw magnitudes.
     for m,g in df.groupby('measure'):
@@ -124,6 +124,7 @@ def build(network=False):
         d,st=fn(); dfs.append(d); statuses.append(st)
     mdfs,msts=ingest_microdata_source_snapshots(); dfs.extend(mdfs); statuses.extend(msts)
     adfs,asts=ingest_additional_verified_snapshots(); dfs.extend(adfs); statuses.extend(asts)
+    v8dfs,v8sts=ingest_v8_verified_snapshots(); dfs.extend(v8dfs); statuses.extend(v8sts)
     if network:
         ex,sts=ingest_all(network=True); dfs.extend(ex); statuses.extend(sts)
     else:

@@ -7,7 +7,7 @@ if not exist .venv %PY% -m venv .venv
 call .venv\Scripts\activate.bat
 python -m pip install --upgrade pip
 pip install -r pipeline\requirements.txt
-python pipeline\enrich_v7.py
+python pipeline\enrich_v8.py
 node --check site\assets\app.js
 python -m unittest discover -s tests -v
 start "" "%CD%\site\index.html"

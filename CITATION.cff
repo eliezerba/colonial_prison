@@ -2,5 +2,5 @@ cff-version: 1.2.0
 title: Colonial Prison Statistics Explorer
 type: software
 message: "Please cite the software and the underlying historical/data sources shown in the observation provenance panel."
-version: 0.7.0
-date-released: 2026-08-14
+version: 0.8.1
+date-released: 2026-10-19

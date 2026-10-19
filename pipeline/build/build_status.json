@@ -6,7 +6,7 @@
     "rows": 1135,
     "years_loaded": "1921–1948",
     "mode": "bundled_snapshot",
-    "updated_at": "2026-08-14T15:06:02Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "NZ_OYB",
@@ -15,7 +15,7 @@
     "rows": 58,
     "years_loaded": "1933–1943",
     "mode": "verified_snapshot",
-    "updated_at": "2026-08-14T15:06:02Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "CAN_HSC_Z",
@@ -24,7 +24,7 @@
     "rows": 361,
     "years_loaded": "1900–1950",
     "mode": "verified_snapshot",
-    "updated_at": "2026-08-14T15:06:02Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "HKG_ADMIN",
@@ -33,7 +33,7 @@
     "rows": 27,
     "years_loaded": "1924–1949",
     "mode": "verified_snapshot",
-    "updated_at": "2026-08-14T15:06:02Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "NZ_AJHR_PRISONS",
@@ -42,7 +42,7 @@
     "rows": 19,
     "years_loaded": "1925–1929",
     "mode": "verified_snapshot",
-    "updated_at": "2026-08-14T15:06:02Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "QLD_STHELENA",
@@ -51,7 +51,7 @@
     "rows": 1,
     "years_loaded": "1936–1936",
     "mode": "verified_source_metadata_snapshot",
-    "updated_at": "2026-08-14T15:06:02Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "TAS_PRISONERS",
@@ -60,7 +60,7 @@
     "rows": 1,
     "years_loaded": "1938–1938",
     "mode": "verified_source_metadata_snapshot",
-    "updated_at": "2026-08-14T15:06:02Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "ADEN_QDL_ADMIN",
@@ -69,7 +69,7 @@
     "rows": 6,
     "years_loaded": "1921–1921",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "AUS_ABS_HIST",
@@ -78,7 +78,7 @@
     "rows": 33,
     "years_loaded": "1900–1950",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "BAS_WPB_HIST",
@@ -87,7 +87,7 @@
     "rows": 2,
     "years_loaded": "1937–1945",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "BEC_WPB_HIST",
@@ -96,7 +96,7 @@
     "rows": 1,
     "years_loaded": "1938–1938",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "BGU_WPB_HIST",
@@ -105,7 +105,7 @@
     "rows": 4,
     "years_loaded": "1921–1947",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "BHS_WPB_HIST",
@@ -114,7 +114,7 @@
     "rows": 4,
     "years_loaded": "1932–1950",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "BMD_WPB_HIST",
@@ -123,7 +123,7 @@
     "rows": 3,
     "years_loaded": "1920–1950",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "BOM_QDL_ADMIN",
@@ -132,7 +132,7 @@
     "rows": 6,
     "years_loaded": "1923–1923",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "BRB_WPB_HIST",
@@ -141,7 +141,7 @@
     "rows": 4,
     "years_loaded": "1929–1950",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "CEYLON_WPB_HIST",
@@ -150,7 +150,7 @@
     "rows": 5,
     "years_loaded": "1920–1938",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "CYP_WPB_HIST",
@@ -159,7 +159,7 @@
     "rows": 7,
     "years_loaded": "1920–1950",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "DMA_WPB_HIST",
@@ -168,7 +168,7 @@
     "rows": 4,
     "years_loaded": "1933–1950",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "EAF_1938_JSH",
@@ -177,16 +177,7 @@
     "rows": 28,
     "years_loaded": "1938–1938",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
-  },
-  {
-    "source_id": "EAW_PARL_HIST",
-    "state": "loaded",
-    "message": "Bundled verified transcription from a structured published table; each observation retains the source URL and table label.",
-    "rows": 18,
-    "years_loaded": "1900–1950",
-    "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "FIJ_WPB_HIST",
@@ -195,7 +186,7 @@
     "rows": 1,
     "years_loaded": "1920–1920",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "GCO_WPB_HIST",
@@ -204,7 +195,7 @@
     "rows": 3,
     "years_loaded": "1920–1937",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "GMB_WPB_HIST",
@@ -213,7 +204,7 @@
     "rows": 4,
     "years_loaded": "1922–1950",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "IND_HANSARD_ADM",
@@ -222,7 +213,7 @@
     "rows": 27,
     "years_loaded": "1920–1928",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "IRL_WPB_TREND",
@@ -231,7 +222,7 @@
     "rows": 12,
     "years_loaded": "1922–1950",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "JAM_WPB_HIST",
@@ -240,7 +231,7 @@
     "rows": 7,
     "years_loaded": "1920–1950",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "KEN_WPB_TREND",
@@ -249,7 +240,7 @@
     "rows": 5,
     "years_loaded": "1928–1948",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "MLT_WPB_HIST",
@@ -258,7 +249,7 @@
     "rows": 5,
     "years_loaded": "1921–1950",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "MUS_WPB_HIST",
@@ -267,7 +258,7 @@
     "rows": 4,
     "years_loaded": "1920–1948",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "MWI_WPB_TREND",
@@ -276,7 +267,7 @@
     "rows": 4,
     "years_loaded": "1928–1950",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "NGA_AO",
@@ -285,7 +276,7 @@
     "rows": 57,
     "years_loaded": "1920–1938",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "NZ_AJHR_PRISONS",
@@ -294,7 +285,7 @@
     "rows": 36,
     "years_loaded": "1925–1930",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "NZ_OYB",
@@ -303,7 +294,7 @@
     "rows": 67,
     "years_loaded": "1919–1919",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "SGP_WPB_TREND",
@@ -312,7 +303,7 @@
     "rows": 1,
     "years_loaded": "1947–1947",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "SLB_WPB_HIST",
@@ -321,7 +312,7 @@
     "rows": 2,
     "years_loaded": "1931–1938",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "SLE_WPB_HIST",
@@ -330,7 +321,7 @@
     "rows": 3,
     "years_loaded": "1920–1938",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "SWZ_WPB_TREND",
@@ -339,7 +330,7 @@
     "rows": 1,
     "years_loaded": "1938–1938",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "TTO_WPB_HIST",
@@ -348,7 +339,7 @@
     "rows": 5,
     "years_loaded": "1920–1950",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "TZA_WPB_TREND",
@@ -357,7 +348,7 @@
     "rows": 4,
     "years_loaded": "1927–1946",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "ZAF_WPB_TREND",
@@ -366,7 +357,70 @@
     "rows": 2,
     "years_loaded": "1936–1936",
     "mode": "verified_web_table_snapshot",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
+  },
+  {
+    "source_id": "BAS_COL_REPORT_1937",
+    "state": "loaded",
+    "message": "v8 curated historical table transcription; inspect source definition and quality flags.",
+    "rows": 6,
+    "years_loaded": "1936–1937",
+    "mode": "v8_curated_source_table",
+    "updated_at": "2026-10-19T18:26:48Z"
+  },
+  {
+    "source_id": "EAW_PARL_HIST",
+    "state": "loaded",
+    "message": "v8 curated historical table transcription; inspect source definition and quality flags.",
+    "rows": 99,
+    "years_loaded": "1900–1950",
+    "mode": "v8_curated_source_table",
+    "updated_at": "2026-10-19T18:26:48Z"
+  },
+  {
+    "source_id": "HKG_ADMIN",
+    "state": "loaded",
+    "message": "v8 curated historical table transcription; inspect source definition and quality flags.",
+    "rows": 8,
+    "years_loaded": "1931–1946",
+    "mode": "v8_curated_source_table",
+    "updated_at": "2026-10-19T18:26:48Z"
+  },
+  {
+    "source_id": "NIR_AAS_1937_47",
+    "state": "loaded",
+    "message": "v8 curated historical table transcription; inspect source definition and quality flags.",
+    "rows": 110,
+    "years_loaded": "1937–1947",
+    "mode": "v8_curated_source_table",
+    "updated_at": "2026-10-19T18:26:48Z"
+  },
+  {
+    "source_id": "NZ_AJHR_PRISONS",
+    "state": "loaded",
+    "message": "v8 curated historical table transcription; inspect source definition and quality flags.",
+    "rows": 30,
+    "years_loaded": "1932–1938",
+    "mode": "v8_curated_source_table",
+    "updated_at": "2026-10-19T18:26:48Z"
+  },
+  {
+    "source_id": "SCT_UK_PARL_2017",
+    "state": "loaded",
+    "message": "v8 curated historical table transcription; inspect source definition and quality flags.",
+    "rows": 31,
+    "years_loaded": "1920–1950",
+    "mode": "v8_curated_source_table",
+    "updated_at": "2026-10-19T18:26:48Z"
+  },
+  {
+    "source_id": "UGA_WPB_HIST",
+    "state": "loaded",
+    "message": "v8 curated historical table transcription; inspect source definition and quality flags.",
+    "rows": 5,
+    "years_loaded": "1921–1944",
+    "mode": "v8_curated_source_table",
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "IND_DSAL",
@@ -375,7 +429,7 @@
     "rows": 0,
     "years_loaded": "",
     "mode": "not_run",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "QLD_PHOTO",
@@ -384,7 +438,7 @@
     "rows": 0,
     "years_loaded": "",
     "mode": "not_run",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "QLD_TOOWOOMBA",
@@ -393,7 +447,7 @@
     "rows": 0,
     "years_loaded": "",
     "mode": "not_run",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "QLD_BRISBANE",
@@ -402,7 +456,7 @@
     "rows": 0,
     "years_loaded": "",
     "mode": "not_run",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "IRL_REGISTERS",
@@ -411,7 +465,7 @@
     "rows": 0,
     "years_loaded": "",
     "mode": "not_run",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "WA_BLUEBOOKS",
@@ -420,7 +474,7 @@
     "rows": 0,
     "years_loaded": "",
     "mode": "not_run",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   },
   {
     "source_id": "GUY_MNS",
@@ -429,6 +483,6 @@
     "rows": 0,
     "years_loaded": "",
     "mode": "not_run",
-    "updated_at": "2026-08-14T15:06:03Z"
+    "updated_at": "2026-10-19T18:26:48Z"
   }
 ]

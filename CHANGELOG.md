@@ -1,4 +1,21 @@
+## 8.3 — Links to primary sources and guided comparisons
+
+- Visible direct links and detailed source profiles for all registered sources.
+- Data-aware comparison controls, coverage indicators, unavailable choices, reset button.
+- Existing observations, visualizations, provenance, bilingual controls and GitHub Pages publishing retained.
+
 # Changelog
+
+## v8 — verified comparative expansion and source-definition corrections (2026-10-19)
+
+- Retained all 1,135 Palestine records and the seven-part v7 research UI.
+- Added 289 source-traceable historical records and replaced 18 mislabelled E&W records: 2,248 overall.
+- Registered Scotland, Northern Ireland, Basutoland colonial report and Uganda WPB sources; 50 registered / 43 loaded / 7 refreshable.
+- Added 1920–1950 England & Wales annual month-end means, Scotland population, detailed 1937–1947 Northern Ireland population/receptions, 1932–1938 New Zealand prison flows, selected Hong Kong and Basutoland metrics.
+- Protected Uganda's unresolved 1938 discrepancy (1,318 vs 4,225) from cross-territory comparisons and maps, while retaining source records and QA metadata.
+- Retained original v7 audits as historical documents; added v8 source expansion, correction audit and research-specific QA.
+- Rebuild with `python pipeline/enrich_v8.py`, plus unit and browser smoke tests.
+
 
 ## v7 — complete source–measure mapping and connected research interface
 

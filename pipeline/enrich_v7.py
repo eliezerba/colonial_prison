@@ -199,6 +199,7 @@ def create_maps_and_audits():
     obs['concept_label_he']=obs['measure'].map(lambda m:mmap.get(m,{}).get('concept_label_he','אחר'))
     obs['time_basis']=obs['measure'].map(lambda m:mmap.get(m,{}).get('time_basis','mixed_or_source_specific'))
     obs['comparison_eligible']=obs['measure'].map(lambda m:bool(mmap.get(m,{}).get('comparable_across_jurisdictions',False)))
+    obs.loc[obs['quality_flag'].fillna('').astype(str).str.contains('blocked_from_comparison',regex=False),'comparison_eligible']=False
     def clean_text(value):
         if pd.isna(value):
             return ''
@@ -359,6 +360,9 @@ def restore_ui():
     (SITE/'assets').mkdir(parents=True,exist_ok=True)
     shutil.copy2(UI/'app.js',SITE/'assets'/'app.js')
     shutil.copy2(UI/'styles.css',SITE/'assets'/'styles.css')
+    for addon in ['elijah-lab-logo.svg','explorer-ux.js','language.js']:
+        asset=UI/'assets'/addon
+        if asset.exists():shutil.copy2(asset,SITE/'assets'/addon)
     # Keep research documentation downloadable after every rebuild.
     for src in [ROOT/'README_HE.md', ROOT/'DATA_SOURCES.md', ROOT/'docs'/'SOURCE_MAPPING_V7.md', ROOT/'docs'/'SYSTEM_QA_V7.md']:
         if src.exists():

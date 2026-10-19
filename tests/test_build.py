@@ -6,7 +6,7 @@ from openpyxl import load_workbook
 ROOT=Path(__file__).resolve().parents[1]
 DL=ROOT/'site/downloads'
 
-class V7BuildTests(unittest.TestCase):
+class V8BuildTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.obs=pd.read_csv(DL/'observations.csv')
@@ -22,11 +22,11 @@ class V7BuildTests(unittest.TestCase):
         cls.js=(ROOT/'site/assets/app.js').read_text(encoding='utf-8')
 
     def test_core_counts(self):
-        self.assertEqual(len(self.obs),1977)
-        self.assertEqual(self.obs.jurisdiction.nunique(),41)
-        self.assertEqual(self.obs.source_dataset.nunique(),39)
-        self.assertEqual(len(self.reg),46)
-        self.assertEqual(self.obs.measure.nunique(),92)
+        self.assertEqual(len(self.obs),2248)
+        self.assertEqual(self.obs.jurisdiction.nunique(),43)
+        self.assertEqual(self.obs.source_dataset.nunique(),43)
+        self.assertEqual(len(self.reg),50)
+        self.assertEqual(self.obs.measure.nunique(),107)
         self.assertEqual(self.obs.concept_id.nunique(),19)
 
     def test_observation_ids_unique(self):
@@ -41,7 +41,7 @@ class V7BuildTests(unittest.TestCase):
     def test_loaded_and_refreshable_sources_are_explicit(self):
         loaded=self.reg[pd.to_numeric(self.reg.loaded_observations,errors='coerce').fillna(0)>0]
         waiting=self.reg[pd.to_numeric(self.reg.loaded_observations,errors='coerce').fillna(0)==0]
-        self.assertEqual(len(loaded),39)
+        self.assertEqual(len(loaded),43)
         self.assertEqual(len(waiting),7)
         self.assertTrue((waiting.state=='refreshable').all())
 

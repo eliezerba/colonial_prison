@@ -52,3 +52,16 @@ def ingest_additional_verified_snapshots():
         msg='Bundled verified transcription from a structured published table; each observation retains the source URL and table label.'
         sts.append(status(sid,'loaded',msg,len(out),year_span(out),'verified_web_table_snapshot'))
     return outs,sts
+
+
+def ingest_v8_verified_snapshots():
+    """Verified curated additions: no network or runtime scraping required."""
+    p=SNAPSHOTS/'v8_verified_snapshots.csv'
+    if not p.exists(): return [],[]
+    df=pd.read_csv(p,dtype=str).fillna('')
+    outs=[]; sts=[]
+    for sid,g in df.groupby('source_dataset'):
+        out=canonicalize(g.to_dict('records'))
+        outs.append(out)
+        sts.append(status(sid,'loaded','v8 curated historical table transcription; inspect source definition and quality flags.',len(out),year_span(out),'v8_curated_source_table'))
+    return outs,sts

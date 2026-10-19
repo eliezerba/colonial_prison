@@ -1,0 +1,57 @@
+{
+  "method": "Chromium Playwright inlined static assets; local file:// navigation blocked by runtime policy",
+  "browser": "/usr/bin/chromium",
+  "views": {
+    "palestine": {
+      "visible": true,
+      "has_content": true,
+      "rendered_chart_count": 7
+    },
+    "compare": {
+      "visible": true,
+      "has_content": true,
+      "rendered_chart_count": 5
+    },
+    "atlas": {
+      "visible": true,
+      "has_content": true,
+      "rendered_chart_count": 0
+    },
+    "map": {
+      "visible": true,
+      "has_content": true,
+      "rendered_chart_count": 5
+    },
+    "data": {
+      "visible": true,
+      "has_content": true,
+      "rendered_chart_count": 0
+    },
+    "quality": {
+      "visible": true,
+      "has_content": true,
+      "rendered_chart_count": 2
+    },
+    "downloads": {
+      "visible": true,
+      "has_content": true,
+      "rendered_chart_count": 0
+    }
+  },
+  "page_errors": [],
+  "console_errors": [],
+  "checks": {
+    "loaded_observations": 2248,
+    "loaded_sources": 50,
+    "palestine_fixed": true,
+    "scotland_in_comparison_control": true,
+    "scotland_comparison_chart": true,
+    "comparison_has_scottish_series": true,
+    "eaw_monthend_qualified_warning": true,
+    "northern_ireland_source_findable": true,
+    "uganda_data_visible": true,
+    "render_error_count": 0,
+    "chart_states_current": 19
+  },
+  "generated_at": "2026-10-19T17:52:29.652052+00:00"
+}

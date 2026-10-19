@@ -4,30 +4,30 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="מערכת מחקרית להשוואת נתוני בתי סוהר קולוניאליים, עם פלסטין המנדטורית כמקרה המרכזי ושרשרת provenance לכל נתון.">
-<title>Colonial Prison Statistics Explorer — Palestine at the Centre</title>
+<title>Colonial Prison Statistics Explorer v8.3 — Palestine at the Centre</title>
 <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
 <header class="topbar">
   <button id="mobileMenu" class="icon-button mobile-only" aria-label="פתיחת תפריט">☰</button>
   <div class="brand" data-go="palestine" role="button" tabindex="0">
-    <div class="brandmark">CPS</div>
-    <div><h1>Colonial Prison Statistics Explorer</h1><p>פלסטין המנדטורית במרכז · נתונים, השוואה ומקורות</p></div>
+    <span class="brandmark lab-logo"><img src="assets/elijah-lab-logo.svg" alt="לוגו מעבדת אליהו"></span>
+    <div><h1>Colonial Prison Statistics <span class="name-accent">Explorer</span></h1><p>אטלס נתוני כליאה היסטוריים <span aria-hidden="true">/</span> פלסטין כמקרה הייחוס</p></div>
   </div>
-  <div class="top-status"><span class="palestine-badge">★ פלסטין היא מקרה הבסיס</span><span id="buildBadge" class="build-badge"></span></div>
+  <div class="top-status"><button id="langToggle" class="lang-toggle" type="button" aria-label="Switch language" aria-pressed="false"><span class="lang-he">עברית</span><span aria-hidden="true"> / </span><span class="lang-en">English</span></button><span class="palestine-badge">פלסטין · מקרה הייחוס</span><span id="buildBadge" class="build-badge"></span><button id="globalSearchOpen" class="global-search-open" type="button" title="חיפוש מהיר (Ctrl+K)"><span aria-hidden="true">⌕</span> חיפוש בכל המערכת <kbd>Ctrl K</kbd></button></div>
 </header>
 <div class="shell">
 <nav id="sidebar" class="sidebar" aria-label="ניווט ראשי">
-  <div class="sidebar-summary"><b>מסלול מחקר</b><span>מן השאלה אל הנתון, ומן הנתון בחזרה למקור</span></div>
-  <button class="nav active" data-view="palestine"><span class="nav-num">01</span><span><b>פלסטין</b><small>הדשבורד המרכזי</small></span></button>
-  <button class="nav" data-view="compare"><span class="nav-num">02</span><span><b>השוואה</b><small>פלסטין מול מרחבים אחרים</small></span></button>
-  <button class="nav" data-view="atlas"><span class="nav-num">03</span><span><b>אטלס מקורות</b><small>כל מקור וכל מדד</small></span></button>
-  <button class="nav" data-view="map"><span class="nav-num">04</span><span><b>מפה</b><small>מרחבים ומוסדות</small></span></button>
-  <button class="nav" data-view="data"><span class="nav-num">05</span><span><b>נתונים</b><small>כל ה־observations</small></span></button>
-  <button class="nav" data-view="quality"><span class="nav-num">06</span><span><b>איכות וקישוריות</b><small>QA, provenance וסנכרון</small></span></button>
-  <button class="nav" data-view="downloads"><span class="nav-num">07</span><span><b>הורדות</b><small>CSV ותיעוד</small></span></button>
-</nav>
-<main class="main">
+  <div class="sidebar-summary"><b>מרחב מחקר</b><span>בחרו במה תרצו לעיין</span></div>
+  <button class="nav active" data-view="palestine"><span class="nav-num" aria-hidden="true">◉</span><span><b>פלסטין</b><small>הדשבורד המרכזי</small></span></button>
+  <button class="nav" data-view="compare"><span class="nav-num" aria-hidden="true">⇄</span><span><b>השוואה</b><small>פלסטין מול מרחבים אחרים</small></span></button>
+  <button class="nav" data-view="atlas"><span class="nav-num" aria-hidden="true">▤</span><span><b>אטלס מקורות</b><small>כל מקור וכל מדד</small></span></button>
+  <button class="nav" data-view="map"><span class="nav-num" aria-hidden="true">⌖</span><span><b>מפה</b><small>מרחבים ומוסדות</small></span></button>
+  <button class="nav" data-view="data"><span class="nav-num" aria-hidden="true">▦</span><span><b>נתונים</b><small>כל ה־observations</small></span></button>
+  <button class="nav" data-view="quality"><span class="nav-num" aria-hidden="true">◇</span><span><b>איכות וקישוריות</b><small>QA, provenance וסנכרון</small></span></button>
+  <button class="nav" data-view="downloads"><span class="nav-num" aria-hidden="true">↓</span><span><b>הורדות</b><small>CSV ותיעוד</small></span></button>
+<div class="sidebar-help"><b>איך משתמשים?</b><p>בחרו נושא, הגדירו שנים, ולחצו על נקודה בגרף כדי להגיע למקור.</p><button type="button" data-view-help="1">מדריך שימוש קצר ↗</button></div><div class="sidebar-footer">ELIJAH LAB · UNIVERSITY OF HAIFA</div></nav>
+<main class="main"><div class="contextbar"><div class="crumbs">מחקר היסטורי <span>›</span> <strong id="currentViewTitle">פלסטין</strong></div><div class="context-actions"><button type="button" id="helpOpen" class="quiet-action">? הסבר למשתמש</button><span class="context-version">v8.3</span></div></div>
 
 <section id="view-palestine" class="view active">
   <div class="hero palestine-hero">
@@ -42,7 +42,7 @@
     <button id="applyPal" class="primary">עדכון</button>
   </div>
   <div id="palModeNote" class="analysis-note"></div>
-  <div class="subnav" id="palTabs"><button class="subnav-button active" data-tab="system">מערכת וזרמים</button><button class="subnav-button" data-tab="institutions">מוסדות ומרחב</button><button class="subnav-button" data-tab="governance">עבודה, משמעת ורצידיביזם</button><button class="subnav-button" data-tab="events">אירועים, אנשים והערות</button></div>
+  <div class="section-intro"><div><span class="eyebrow">נתונים ופרשנות</span><h3>בחרו זווית מחקר</h3><p>כל הנושאים וכל הגרפים מגרסה 8 נשמרו. אפשר לעבור ביניהם בלי לאבד את הגדרות השנים.</p></div><span class="section-count">4 תחומים · 27 גרפים</span></div><div class="subnav" id="palTabs"><button class="subnav-button active" data-tab="system">מערכת וזרמים</button><button class="subnav-button" data-tab="institutions">מוסדות ומרחב</button><button class="subnav-button" data-tab="governance">עבודה, משמעת ורצידיביזם</button><button class="subnav-button" data-tab="events">אירועים, אנשים והערות</button></div>
 
   <div class="tab-panel active" data-panel="system">
     <div class="dashboard-grid">
@@ -103,8 +103,8 @@
       <label>עיבוד זמן<select id="cmpMode"><option value="annual">שנתי</option><option value="ma3">ממוצע נע 3 שנים</option><option value="ma5">ממוצע נע 5 שנים</option><option value="periodavg">ממוצע רב־שנתי</option><option value="index">Index 100</option><option value="change">שינוי % מתחילת התקופה</option></select></label>
       <div class="year-controls"><label>מ־<input id="cmpY0" type="number"></label><label>עד<input id="cmpY1" type="number"></label></div>
       <label class="inline-check"><input id="cmpOverlap" type="checkbox" checked>רק שנות חפיפה עם פלסטין</label>
-      <div><div class="field-label">מרחבים</div><div id="cmpJurisdictions" class="check-list"></div></div>
-      <button id="runCompare" class="primary full">הרצת ההשוואה</button>
+      <div id="cmpAvailability" class="availability-summary" role="status" aria-live="polite"></div><div><div class="field-label">מרחבים <span id="cmpAvailableCount"></span></div><div id="cmpJurisdictions" class="check-list"></div></div>
+      <div class="compare-actions"><button id="runCompare" class="primary">הרצת ההשוואה</button><button id="resetCompare" class="secondary" type="button">איפוס בחירות</button></div>
     </aside>
     <div class="lab-results">
       <div id="cmpWarning" class="callout hidden"></div>
@@ -121,7 +121,7 @@
 </section>
 
 <section id="view-atlas" class="view">
-  <div class="page-heading"><div><div class="eyebrow">SOURCE–MEASURE ATLAS</div><h2>אטלס המקורות והמדדים</h2><p>כל 46 המקורות הרשומים מופיעים כאן — גם מקורות טעונים וגם מקורות שעדיין ממתינים ל־ingest. כל 92 המדדים ניתנים לאיתור ולתצוגה.</p></div><div id="atlasStats" class="hero-stats compact"></div></div>
+  <div class="page-heading"><div><div class="eyebrow">SOURCE–MEASURE ATLAS</div><h2>אטלס המקורות והמדדים</h2><p>כל 50 המקורות הרשומים מופיעים כאן — גם מקורות טעונים וגם מקורות שעדיין ממתינים ל־ingest. כל 107 המדדים ניתנים לאיתור ולתצוגה.</p></div><div id="atlasStats" class="hero-stats compact"></div></div>
   <div class="subnav" id="atlasTabs"><button class="subnav-button active" data-tab="sources">מקורות</button><button class="subnav-button" data-tab="measures">מדדים</button><button class="subnav-button" data-tab="network">רשת קשרים</button></div>
   <div class="tab-panel active" data-atlas-panel="sources">
     <div class="filterbar"><input id="sourceSearch" class="grow" placeholder="חיפוש מקור, מוסד או מרחב"><select id="sourceState"><option value="">כל המצבים</option><option value="loaded">טעון</option><option value="refreshable">ממתין לטעינה</option></select><select id="sourceRegion"><option value="">כל האזורים</option></select></div>
@@ -175,6 +175,8 @@
 <div id="drawerBackdrop" class="backdrop hidden"></div>
 <aside id="drawer" class="drawer" aria-label="פרטי observation"><button id="closeDrawer" class="drawer-close">×</button><div id="drawerContent"></div></aside>
 
+<div id="searchOverlay" class="search-overlay hidden" role="presentation"><div class="search-dialog" role="dialog" aria-modal="true" aria-label="חיפוש בכל המערכת"><div class="search-dialog-head"><span>⌕</span><input id="globalSearchInput" type="search" aria-label="חפש מסכים וגרפים" placeholder="חיפוש מסך, נושא, גרף או מושג מחקרי…" autocomplete="off"><button id="globalSearchClose" type="button" aria-label="סגירה">Esc ×</button></div><div id="globalSearchResults" class="search-results"></div><div class="search-foot">חיפוש לפי שם הגרף או המסך · Enter לפתיחה · Esc לסגירה</div></div></div>
+<div id="helpOverlay" class="search-overlay hidden" role="presentation"><div class="help-dialog" role="dialog" aria-modal="true" aria-label="מדריך שימוש"><button id="helpClose" type="button" class="help-close" aria-label="סגירה">×</button><span class="eyebrow">מדריך מהיר</span><h2>כך חוקרים את נתוני הכליאה</h2><div class="help-steps"><div><b>01 · מתחילים מפלסטין</b><p>בחרו תקופת זמן ואופן הצגה, ועברו בין ארבעת נושאי המחקר. פלסטין נשארת קבועה בניתוח.</p></div><div><b>02 · יוצרים השוואה</b><p>בחרו מושג ומרחבים. ליד ההשוואות מוצגות הסתייגויות על הגדרות ובסיסי זמן.</p></div><div><b>03 · חוזרים אל המקור</b><p>לחצו על נקודה בגרף כדי לראות את הנתון המדויק, פרטי האימות וקישור למקור.</p></div><div><b>04 · מוצאים הכול במהירות</b><p>לחצו על חיפוש בכותרת, או Ctrl+K, כדי לעבור ישירות לגרף, מקור או מסך.</p></div></div><button id="helpStart" class="primary" type="button">התחל במחקר</button></div></div>
 <script src="assets/plotly.min.js"></script>
 <script src="data/metadata.js"></script>
 <script src="data/sources.js"></script>
@@ -193,5 +195,7 @@
 <script src="data/observations.js"></script>
 <script src="data/world_outline.js"></script>
 <script src="assets/app.js"></script>
+<script src="assets/explorer-ux.js"></script>
+<script src="assets/language.js"></script>
 </body>
 </html>
